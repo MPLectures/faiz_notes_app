@@ -7,7 +7,7 @@ import 'package:faiz_notes_app/Helpers/Constant.dart';
 import '../../controller/bottom_navigation_controller.dart';
 import 'package:faiz_notes_app/View/Screens/add_notes_screen.dart';
 
-class start_your_journey_screen extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
 
   NavigationController bottomNavigationController =
       Get.put(NavigationController());
@@ -94,7 +94,7 @@ class start_your_journey_screen extends StatelessWidget {
         child: FloatingActionButton(
           backgroundColor: NotesColor.purpleColor,
           onPressed: () {
-            Get.to(() => add_notes_screen());
+            Get.to(() => AddNotesScreen());
           },
           child: Icon(
             Icons.add,

@@ -2,12 +2,11 @@ import 'package:faiz_notes_app/Helpers/Constant.dart';
 import 'package:faiz_notes_app/View/Screens/notes_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 import '../../Custom_Widgets/Custom_ContainerButton.dart';
 import '../../Custom_Widgets/Custom_TextFormField.dart';
 
-class add_notes_screen extends StatelessWidget {
+class AddNotesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +80,7 @@ class add_notes_screen extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(() => notes_home_screen());
+                Get.to(() => NotesHomeScreen());
               },
               child: CustomContainerButton(
                 customHeight: 52,

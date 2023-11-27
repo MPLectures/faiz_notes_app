@@ -6,7 +6,7 @@ import 'package:faiz_notes_app/View/Screens/new_password_screen.dart';
 import 'package:faiz_notes_app/View/Screens/onBoarding_screen.dart';
 import '../../controller/bottom_navigation_controller.dart';
 
-class my_profile_screen extends StatelessWidget {
+class MyProfileScreen extends StatelessWidget {
   NavigationController bottomNavigationController =
   Get.put(NavigationController());
 
@@ -82,7 +82,7 @@ class my_profile_screen extends StatelessWidget {
                   ),
                   child: TextButton(
                     onPressed: () {
-                      Get.to(() => onBoarding_screen());
+                      Get.to(() => OnBoardingScreen());
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -128,7 +128,7 @@ class my_profile_screen extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(() => new_password_screen());
+                  Get.to(() => NewPasswordScreen());
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 7.sp),
@@ -170,7 +170,7 @@ class my_profile_screen extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(() => onBoarding_screen());
+                  Get.to(() => OnBoardingScreen());
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 7.sp),
@@ -235,7 +235,7 @@ class my_profile_screen extends StatelessWidget {
         child: FloatingActionButton(
           backgroundColor: NotesColor.purpleColor,
           onPressed: () {
-            Get.to(() => onBoarding_screen());
+            Get.to(() => OnBoardingScreen());
           },
           child: Icon(
             Icons.add,

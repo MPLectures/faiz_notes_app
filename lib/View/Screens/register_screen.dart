@@ -6,7 +6,7 @@ import '../../Helpers/Constant.dart';
 import 'for_got_password_screen.dart';
 
 
-class register_screen extends StatelessWidget {
+class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {

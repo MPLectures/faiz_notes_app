@@ -4,8 +4,8 @@ import 'package:sizer/sizer.dart';
 import '../../Helpers/Constant.dart';
 import 'login_screen.dart';
 
-class onBoarding_screen extends StatelessWidget{
-  const onBoarding_screen({super.key});
+class OnBoardingScreen extends StatelessWidget{
+  const OnBoardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class onBoarding_screen extends StatelessWidget{
               TextButton(
                 onPressed: (){
                   // GetX Routing
-                  Get.to(()=>login_screen());
+                  Get.to(()=>LoginScreen());
                 },
                 child:Container(
                   height: 45,

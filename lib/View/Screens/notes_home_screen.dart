@@ -6,7 +6,7 @@ import '../../Helpers/Constant.dart';
 import '../../controller/bottom_navigation_controller.dart';
 import 'add_notes_screen.dart';
 
-class notes_home_screen extends StatelessWidget {
+class NotesHomeScreen extends StatelessWidget {
 
   NavigationController bottomNavigationController =
   Get.put(NavigationController());
@@ -66,11 +66,9 @@ class notes_home_screen extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
-              child: Divider(
-                thickness: 0.5,
-                color: NotesColor.whiteColor,
-              ),
+            Divider(
+              thickness: 0.5,
+              color: NotesColor.whiteColor,
             ),
             Container(
               height: 70.sp,
@@ -138,7 +136,7 @@ class notes_home_screen extends StatelessWidget {
         child: FloatingActionButton(
           backgroundColor: NotesColor.purpleColor,
           onPressed: () {
-            Get.to(()=>add_notes_screen());
+            Get.to(()=>AddNotesScreen());
           },
           child: Icon(
             Icons.add,

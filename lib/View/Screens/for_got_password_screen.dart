@@ -97,7 +97,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                         ),
                         child: GestureDetector(
                           onTap: (){
-                            Get.to(()=>new_password_screen());
+                            Get.to(()=>NewPasswordScreen());
                           },
                           child: Text(
                             'Send Code',
