@@ -6,7 +6,7 @@ import 'package:sizer/sizer.dart';
 import '../../Custom_Widgets/Custom_ContainerButton.dart';
 import '../../Custom_Widgets/Custom_TextFormField.dart';
 
-class AddNotesScreen extends StatelessWidget {
+class NotesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,8 +16,12 @@ class AddNotesScreen extends StatelessWidget {
         backgroundColor: NotesColor.whiteColor,
         elevation: 0,
         title: Text(
-          'Add Notes',
-          style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600, fontSize: 24.sp, color: NotesColor.blackColor),
+          'Notes',
+          style: TextStyle(
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w600,
+              fontSize: 24.sp,
+              color: NotesColor.blackColor),
           textAlign: TextAlign.center,
         ),
       ),
@@ -31,14 +35,22 @@ class AddNotesScreen extends StatelessWidget {
             ),
             Text(
               'Name',
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, fontFamily: 'Poppins', color: NotesColor.natural_black),
+              style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Poppins',
+                  color: NotesColor.natural_black),
             ),
             SizedBox(
               height: 5.sp,
             ),
             CustomTextFormField(
               hintText: 'Muhammad Ali Hassan Shaikh',
-              hintStyle: TextStyle(color: NotesColor.blackColor, fontSize: 11, fontWeight: FontWeight.w300, fontFamily: 'Poppins'),
+              hintStyle: TextStyle(
+                  color: NotesColor.blackColor,
+                  fontSize: 11,
+                  fontWeight: FontWeight.w300,
+                  fontFamily: 'Poppins'),
               borderRadius: BorderRadius.circular(8.sp),
               fillColor: NotesColor.light_grey,
               falseColor: true,
@@ -52,27 +64,31 @@ class AddNotesScreen extends StatelessWidget {
             ),
             Text(
               ' Write your data here',
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, fontFamily: 'Poppins', color: NotesColor.natural_black),
+              style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Poppins',
+                  color: NotesColor.natural_black),
               textAlign: TextAlign.center,
             ),
             SizedBox(
               height: 5.sp,
             ),
             Container(
-              width: 280.sp,
-              height: 200.sp,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: NotesColor.light_grey,
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-                  'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-                  'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-                  style: TextStyle(fontWeight: FontWeight.w200, fontFamily: 'Poppins', fontSize: 11, color: NotesColor.natural_black),
-                ),
+              height: 50.h,
+              child: CustomTextFormField(
+                hintText: '*************************',
+                hintStyle: TextStyle(
+                    color: NotesColor.blackColor,
+                    fontSize: 11,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: 'Poppins'),
+                borderRadius: BorderRadius.circular(8.sp),
+                fillColor: NotesColor.light_grey,
+                falseColor: true,
+                border: InputBorder.none,
+                BorderColor: BorderSide(),
+                borderSide: BorderSide(),
               ),
             ),
             SizedBox(
@@ -89,7 +105,11 @@ class AddNotesScreen extends StatelessWidget {
                 buttonColor: NotesColor.purpleColor,
                 text: Text('Save',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontFamily: 'Poppins', fontSize: 16, fontWeight: FontWeight.w500, color: NotesColor.whiteColor)),
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: NotesColor.whiteColor)),
               ),
             ),
           ],

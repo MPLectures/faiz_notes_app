@@ -2,10 +2,10 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
 import '../../layouts/layout_home.dart';
-import '../../layouts/layout_profile.dart';
 import 'package:faiz_notes_app/Helpers/Constant.dart';
 import '../../controller/bottom_navigation_controller.dart';
-import 'package:faiz_notes_app/View/Screens/add_notes_screen.dart';
+import '../../layouts/profile_layout.dart';
+import 'add_notes_home_screen.dart';
 
 class HomeScreen extends StatelessWidget {
 
@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
 
   List layout = [
     layout_home(),
-    layout_profile(),
+    ProfileLayout(),
   ];
 
   @override

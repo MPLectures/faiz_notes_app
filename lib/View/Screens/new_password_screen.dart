@@ -1,10 +1,10 @@
+import 'package:faiz_notes_app/View/Screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../Custom_Widgets/Custom_ContainerButton.dart';
 import '../../Custom_Widgets/Custom_TextFormField.dart';
 import '../../Helpers/Constant.dart';
-import 'homeScreen.dart';
 
 class NewPasswordScreen extends StatelessWidget {
 
@@ -114,7 +114,7 @@ class NewPasswordScreen extends StatelessWidget {
               SizedBox(height: 10.h,),
               GestureDetector(
                 onTap: (){
-                  Get.to(()=>HomeScreen());
+                  Get.to(()=>RegisterScreen());
                 },
                 child: CustomContainerButton(
                   customHeight: 52,

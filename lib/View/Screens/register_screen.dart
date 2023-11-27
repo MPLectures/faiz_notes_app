@@ -1,9 +1,9 @@
+import 'package:faiz_notes_app/View/Screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../Custom_Widgets/Custom_TextFormField.dart';
 import '../../Helpers/Constant.dart';
-import 'for_got_password_screen.dart';
 
 
 class RegisterScreen extends StatelessWidget {
@@ -158,7 +158,7 @@ class RegisterScreen extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    Get.to(()=>ForgotPasswordScreen());
+                    Get.to(()=>HomeScreen());
                      },
                   child: Container(
                     height: 52,
@@ -217,7 +217,7 @@ class RegisterScreen extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Get.to(()=>ForgotPasswordScreen());
+                    Get.to(()=>HomeScreen());
                   },
                   child: Container(
                     height: 52,
@@ -264,7 +264,7 @@ class RegisterScreen extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: (){
-                        Get.to(()=>ForgotPasswordScreen());
+                        Get.to(()=>HomeScreen());
                       },
                       child: Container(
                         child: Text(

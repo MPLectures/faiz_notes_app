@@ -1,10 +1,9 @@
-import 'package:faiz_notes_app/View/Screens/my_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../Helpers/Constant.dart';
 import '../../controller/bottom_navigation_controller.dart';
-import 'add_notes_screen.dart';
+import 'notes_screen.dart';
 
 class NotesHomeScreen extends StatelessWidget {
 
@@ -136,7 +135,7 @@ class NotesHomeScreen extends StatelessWidget {
         child: FloatingActionButton(
           backgroundColor: NotesColor.purpleColor,
           onPressed: () {
-            Get.to(()=>AddNotesScreen());
+            Get.to(()=>NotesScreen());
           },
           child: Icon(
             Icons.add,

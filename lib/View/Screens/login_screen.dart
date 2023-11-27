@@ -5,7 +5,7 @@ import 'package:sizer/sizer.dart';
 import '../../Custom_Widgets/Custom_TextFormField.dart';
 import '../../Helpers/Constant.dart';
 import 'for_got_password_screen.dart';
-import 'homeScreen.dart';
+import 'home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
