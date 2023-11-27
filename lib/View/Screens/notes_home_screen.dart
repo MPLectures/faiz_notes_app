@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../Helpers/Constant.dart';
 import '../../controller/bottom_navigation_controller.dart';
+import 'add_notes_screen.dart';
 
 class notes_home_screen extends StatelessWidget {
 
@@ -137,7 +138,7 @@ class notes_home_screen extends StatelessWidget {
         child: FloatingActionButton(
           backgroundColor: NotesColor.purpleColor,
           onPressed: () {
-            Get.to(()=>my_profile_screen());
+            Get.to(()=>add_notes_screen());
           },
           child: Icon(
             Icons.add,
