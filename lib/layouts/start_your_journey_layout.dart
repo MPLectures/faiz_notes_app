@@ -1,8 +1,10 @@
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
 import 'package:faiz_notes_app/Helpers/Constant.dart';
+import '../View/Screens/add_notes_home_screen.dart';
 
-class LayoutHome extends StatelessWidget {
+class StartYourJourneyLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

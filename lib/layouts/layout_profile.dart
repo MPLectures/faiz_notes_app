@@ -1,15 +1,12 @@
+import 'package:faiz_notes_app/View/Screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:faiz_notes_app/Helpers/Constant.dart';
-import 'package:faiz_notes_app/View/Screens/new_password_screen.dart';
-import 'package:faiz_notes_app/View/Screens/onBoarding_screen.dart';
-import '../../controller/bottom_navigation_controller.dart';
+import '../Helpers/Constant.dart';
+import '../View/Screens/new_password_screen.dart';
+import '../View/Screens/onBoarding_screen.dart';
 
-class MyProfileScreen extends StatelessWidget {
-  NavigationController bottomNavigationController =
-  Get.put(NavigationController());
-
+class LayoutProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +71,7 @@ class MyProfileScreen extends StatelessWidget {
                 height: 3.h,
               ),
               Container(
-                  padding: EdgeInsets.symmetric(vertical: 5.sp),
+                  height: 40.sp,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: NotesColor.whiteColor,
@@ -82,15 +79,15 @@ class MyProfileScreen extends StatelessWidget {
                   ),
                   child: TextButton(
                     onPressed: () {
-                      Get.to(() => OnBoardingScreen());
+                      Get.to(() => RegisterScreen());
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
                           'assets/Images/pencil-alt.png',
-                          height: 18.sp,
-                          width: 18.sp,
+                          height: 17.sp,
+                          width: 17.sp,
                           color: NotesColor.purpleColor,
                         ),
                         SizedBox(
@@ -100,7 +97,7 @@ class MyProfileScreen extends StatelessWidget {
                           'Edit Profile',
                           style: TextStyle(
                             fontFamily: 'poppins',
-                            fontSize: 16.sp,
+                            fontSize: 15.sp,
                             fontWeight: FontWeight.w700,
                             color: NotesColor.purpleColor,
                           ),
@@ -206,43 +203,6 @@ class MyProfileScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Obx(
-        () => BottomNavigationBar(
-          currentIndex: bottomNavigationController.currentIndex.value,
-          onTap: (Index) {
-            bottomNavigationController.changeIndex(Index);
-            print('Hello');
-          },
-          selectedItemColor: NotesColor.purpleColor,
-          elevation: 0,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-              ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              label: 'Profile',
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: SizedBox(
-        height: 45.sp,
-        width: 45.sp,
-        child: FloatingActionButton(
-          backgroundColor: NotesColor.purpleColor,
-          onPressed: () {
-            Get.to(() => OnBoardingScreen());
-          },
-          child: Icon(
-            Icons.add,
-          ),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

@@ -30,7 +30,7 @@ class OnBoardingScreen extends StatelessWidget{
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w700,
-                      fontSize: 17.sp,
+                      fontSize: 17,
                       color: NotesColor.whiteColor,
                     ),
                     textAlign: TextAlign.center,
@@ -43,8 +43,7 @@ class OnBoardingScreen extends StatelessWidget{
                   Get.to(()=>LoginScreen());
                 },
                 child:Container(
-                  height: 45,
-                  // width: 370.sp,
+                  height: 45.sp,
                   decoration: BoxDecoration(
                     color: NotesColor.whiteColor,
                     borderRadius: BorderRadius.circular(100),
@@ -58,7 +57,7 @@ class OnBoardingScreen extends StatelessWidget{
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontFamily: 'Poppins',
-                          fontSize: 16.sp,
+                          fontSize: 16,
                           color: NotesColor.purpleColor),
                       textAlign: TextAlign.center,
                     ),

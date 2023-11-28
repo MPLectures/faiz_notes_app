@@ -1,14 +1,15 @@
+import 'package:faiz_notes_app/View/Screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import '../../Custom_Widgets/Custom_ContainerButton.dart';
 import '../../Helpers/Constant.dart';
 import '../../controller/bottom_navigation_controller.dart';
-import 'notes_screen.dart';
 
 class NotesHomeScreen extends StatelessWidget {
 
-  NavigationController bottomNavigationController =
-  Get.put(NavigationController());
+  BottomNavigationController bottomNavigationController =
+  Get.put(BottomNavigationController());
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class NotesHomeScreen extends StatelessWidget {
         backgroundColor: NotesColor.whiteColor,
         elevation: 0,
         title: Text(
-          'Home',
+          'Notes Home',
           style: TextStyle(
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w600,
@@ -66,7 +67,6 @@ class NotesHomeScreen extends StatelessWidget {
               ),
             ),
             Divider(
-              thickness: 0.5,
               color: NotesColor.whiteColor,
             ),
             Container(
@@ -102,47 +102,30 @@ class NotesHomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: Obx( () =>
-      BottomNavigationBar(
-        currentIndex: bottomNavigationController.currentIndex.value,
-          onTap: (Index) {
-
-            bottomNavigationController.changeIndex(Index);
-          },
-          selectedItemColor: NotesColor.purpleColor,
-          unselectedItemColor: NotesColor.natural_darkColor,
-          elevation: 0,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
+            SizedBox(
+              height: 25.h,
+            ),
+            GestureDetector(
+              onTap: () {
+                Get.to(() => HomeScreen());
+              },
+              child: CustomContainerButton(
+                customHeight: 52,
+                customWidth: 280.sp,
+                borderRadius: BorderRadius.circular(8.sp),
+                buttonColor: NotesColor.purpleColor,
+                text: Text('Save',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: NotesColor.whiteColor)),
               ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              label: 'Profile',
             ),
           ],
         ),
       ),
-      floatingActionButton: SizedBox(
-        height: 45.sp,
-        width: 45.sp,
-        child: FloatingActionButton(
-          backgroundColor: NotesColor.purpleColor,
-          onPressed: () {
-            Get.to(()=>NotesScreen());
-          },
-          child: Icon(
-            Icons.add,
-          ),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

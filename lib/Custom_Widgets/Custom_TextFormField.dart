@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Helpers/Constant.dart';
+
 
 class CustomTextFormField extends StatelessWidget {
   String? hintText;
@@ -13,11 +13,13 @@ class CustomTextFormField extends StatelessWidget {
   bool? falseColor;
   InputBorder? border;
   Icon ? SuffixIcon;
-
+ int? MaximumLine;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: MaximumLine,
       decoration: InputDecoration(
+
         // border: InputBorder.none,
         hintText: hintText,
         hintStyle: hintStyle!,
@@ -48,6 +50,7 @@ class CustomTextFormField extends StatelessWidget {
     this.fillColor,
     this.falseColor,
     this.border,
+    this.MaximumLine,
     required this.borderRadius,
   });
 }

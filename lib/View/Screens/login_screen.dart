@@ -219,7 +219,7 @@ class LoginScreen extends StatelessWidget {
                           Get.to(() => RegisterScreen());
                         },
                         child: Text(
-                          ' Register here',
+                          'Register here',
                           style: TextStyle(fontWeight: FontWeight.bold,
                               fontFamily: 'Poppins',
                               color: NotesColor.purpleColor,

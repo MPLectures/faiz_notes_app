@@ -1,16 +1,17 @@
 import 'package:faiz_notes_app/Helpers/Constant.dart';
-import 'package:faiz_notes_app/View/Screens/notes_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../Custom_Widgets/Custom_ContainerButton.dart';
 import '../../Custom_Widgets/Custom_TextFormField.dart';
+import 'notes_home_screen.dart';
 
 class AddNotesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: NotesColor.whiteColor,
@@ -71,28 +72,23 @@ class AddNotesScreen extends StatelessWidget {
                   color: NotesColor.natural_black),
               textAlign: TextAlign.center,
             ),
-            SizedBox(
-              height: 5.sp,
-            ),
-            Container(
-              height: 50.h,
-              child: CustomTextFormField(
-                hintText: '*************************',
-                hintStyle: TextStyle(
-                    color: NotesColor.blackColor,
-                    fontSize: 11,
-                    fontWeight: FontWeight.w300,
-                    fontFamily: 'Poppins'),
-                borderRadius: BorderRadius.circular(8.sp),
-                fillColor: NotesColor.light_grey,
-                falseColor: true,
-                border: InputBorder.none,
-                BorderColor: BorderSide(),
-                borderSide: BorderSide(),
-              ),
+            CustomTextFormField(
+              MaximumLine: 10,
+              hintText: '*************************',
+              hintStyle: TextStyle(
+                  color: NotesColor.blackColor,
+                  fontSize: 11,
+                  fontWeight: FontWeight.w300,
+                  fontFamily: 'Poppins'),
+              borderRadius: BorderRadius.circular(8.sp),
+              fillColor: NotesColor.light_grey,
+              falseColor: true,
+              border: InputBorder.none,
+              BorderColor: BorderSide(),
+              borderSide: BorderSide(),
             ),
             SizedBox(
-              height: 8.h,
+              height: 2.h,
             ),
             GestureDetector(
               onTap: () {

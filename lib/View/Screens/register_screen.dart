@@ -1,17 +1,16 @@
-import 'package:faiz_notes_app/View/Screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../Custom_Widgets/Custom_TextFormField.dart';
 import '../../Helpers/Constant.dart';
-
+import 'home_screen.dart';
+import 'login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white ,
+      backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: NotesColor.whiteColor,
@@ -158,8 +157,8 @@ class RegisterScreen extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    Get.to(()=>HomeScreen());
-                     },
+                    Get.to(() => HomeScreen());
+                  },
                   child: Container(
                     height: 52,
                     padding: EdgeInsets.symmetric(vertical: 10.sp),
@@ -217,14 +216,14 @@ class RegisterScreen extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Get.to(()=>HomeScreen());
+                    Get.to(() => HomeScreen());
                   },
                   child: Container(
                     height: 52,
                     padding: EdgeInsets.symmetric(vertical: 10.sp),
                     decoration: BoxDecoration(
-                      border: Border.all(color: NotesColor.greyColor,
-                      width: 1.sp),
+                      border:
+                          Border.all(color: NotesColor.greyColor, width: 1.sp),
                       borderRadius: BorderRadius.circular(100),
                       color: NotesColor.whiteColor,
                     ),
@@ -236,7 +235,7 @@ class RegisterScreen extends StatelessWidget {
                           height: 22,
                           width: 22,
                         ),
-                        SizedBox(width:3.w),
+                        SizedBox(width: 3.w),
                         Text(
                           ' Register with Google',
                           style: TextStyle(
@@ -250,7 +249,9 @@ class RegisterScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 4.h,),
+                SizedBox(
+                  height: 4.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -263,8 +264,8 @@ class RegisterScreen extends StatelessWidget {
                           fontSize: 13.sp),
                     ),
                     GestureDetector(
-                      onTap: (){
-                        Get.to(()=>HomeScreen());
+                      onTap: () {
+                        Get.to(() => LoginScreen());
                       },
                       child: Container(
                         child: Text(

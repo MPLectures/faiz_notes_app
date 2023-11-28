@@ -1,11 +1,17 @@
 
 import 'package:get/get.dart';
 
-class NavigationController extends GetxController{
+class BottomNavigationController extends GetxController{
 
-  var currentIndex = 0.obs;
-
+  // HomeScreen
+  var selectedIndex = 0.obs;
   void changeIndex(int index){
-    currentIndex.value = index;
+    selectedIndex.value = index;
+  }
+
+  // Add Notes Home Screen
+  var selectedIndexValue = 0;
+  void changeIndexValue(int index){
+    selectedIndex.value = index;
   }
 }

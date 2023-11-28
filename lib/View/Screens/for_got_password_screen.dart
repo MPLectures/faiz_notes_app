@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../Custom_Widgets/Custom_TextFormField.dart';
-import 'new_password_screen.dart';
+import 'login_screen.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +16,6 @@ class ForgotPasswordScreen extends StatelessWidget {
         leading: TextButton(
           onPressed: () {
             Get.back();
-            // Get.to(()=>login_screen());
           },
           child: Icon(
             Icons.arrow_back_ios_new_outlined,
@@ -36,14 +34,19 @@ class ForgotPasswordScreen extends StatelessWidget {
         elevation: 0,
       ),
       body: SafeArea(
-        child:SingleChildScrollView(
+        child: SingleChildScrollView(
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 10.sp,vertical: 10.sp),
+            padding: EdgeInsets.symmetric(horizontal: 10.sp, vertical: 10.sp),
             child: Column(
               children: [
-                Image.asset('assets/Images/Illustration.png',
-                width: 280, height: 280,),
-                SizedBox(height: 20.sp,),
+                Image.asset(
+                  'assets/Images/Illustration.png',
+                  width: 280,
+                  height: 280,
+                ),
+                SizedBox(
+                  height: 20.sp,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -55,7 +58,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                           fontFamily: 'Poppins',
                           color: NotesColor.blackColor),
                     ),
-                    SizedBox(height: 10.sp,),
+                    SizedBox(
+                      height: 10.sp,
+                    ),
                     Text(
                       'Insert your email address to receive a code for creating a new password',
                       style: TextStyle(
@@ -64,7 +69,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                           fontFamily: 'Poppins',
                           color: NotesColor.natural_darkColor),
                     ),
-                    SizedBox(height: 5.h,),
+                    SizedBox(
+                      height: 5.h,
+                    ),
                     Text(
                       'Email Address',
                       style: TextStyle(
@@ -85,7 +92,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                       borderSide: BorderSide(color: NotesColor.greyColor),
                       borderRadius: BorderRadius.circular(7),
                     ),
-                    SizedBox(height: 7.h,),
+                    SizedBox(
+                      height: 7.h,
+                    ),
                     Container(
                       width: 340,
                       height: 52,
@@ -95,8 +104,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                         color: NotesColor.purpleColor,
                       ),
                       child: GestureDetector(
-                        onTap: (){
-                          Get.to(()=>NewPasswordScreen());
+                        onTap: () {
+                          Get.to(() => LoginScreen());
                         },
                         child: Text(
                           'Send Code',

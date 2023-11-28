@@ -1,4 +1,4 @@
-import 'package:faiz_notes_app/View/Screens/register_screen.dart';
+import 'package:faiz_notes_app/View/Screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -7,10 +7,9 @@ import '../../Custom_Widgets/Custom_TextFormField.dart';
 import '../../Helpers/Constant.dart';
 
 class NewPasswordScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -18,7 +17,7 @@ class NewPasswordScreen extends StatelessWidget {
         elevation: 0,
         leading: TextButton(
           onPressed: () {
-              Get.back();
+            Get.back();
           },
           child: Icon(
             Icons.arrow_back_ios_new_outlined,
@@ -38,7 +37,7 @@ class NewPasswordScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 10.sp),
+          padding: EdgeInsets.symmetric(horizontal: 10.sp),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -50,7 +49,9 @@ class NewPasswordScreen extends StatelessWidget {
                     fontFamily: 'Poppins',
                     color: NotesColor.blackColor),
               ),
-              SizedBox(height: 5.sp,),
+              SizedBox(
+                height: 5.sp,
+              ),
               Text(
                 'Your new password should be different from the previous password',
                 style: TextStyle(
@@ -59,7 +60,9 @@ class NewPasswordScreen extends StatelessWidget {
                     fontFamily: 'Poppins',
                     color: NotesColor.natural_darkColor),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Text(
                 'New Password',
                 style: TextStyle(
@@ -80,7 +83,9 @@ class NewPasswordScreen extends StatelessWidget {
                 borderSide: BorderSide(color: NotesColor.greyColor),
                 borderRadius: BorderRadius.circular(7),
               ),
-              SizedBox(height: 5.sp,),
+              SizedBox(
+                height: 5.sp,
+              ),
               Text(
                 'min. 8 character, combination of 0-9, A-Z, a-z',
                 style: TextStyle(
@@ -89,7 +94,9 @@ class NewPasswordScreen extends StatelessWidget {
                     fontFamily: 'Poppins',
                     color: NotesColor.natural_darkColor),
               ),
-              SizedBox(height: 15.sp,),
+              SizedBox(
+                height: 15.sp,
+              ),
               Text(
                 'Retype New Password',
                 style: TextStyle(
@@ -98,7 +105,9 @@ class NewPasswordScreen extends StatelessWidget {
                     fontFamily: 'Poppins',
                     color: NotesColor.blackColor),
               ),
-              SizedBox(height: 6,),
+              SizedBox(
+                height: 6,
+              ),
               CustomTextFormField(
                 hintText: '******',
                 hintStyle: TextStyle(
@@ -111,22 +120,25 @@ class NewPasswordScreen extends StatelessWidget {
                 borderSide: BorderSide(color: NotesColor.greyColor),
                 borderRadius: BorderRadius.circular(7),
               ),
-              SizedBox(height: 10.h,),
+              SizedBox(
+                height: 10.h,
+              ),
               GestureDetector(
-                onTap: (){
-                  Get.to(()=>RegisterScreen());
+                onTap: () {
+                  Get.to(() => LoginScreen());
                 },
                 child: CustomContainerButton(
                   customHeight: 52,
                   customWidth: 280.sp,
                   borderRadius: BorderRadius.circular(10.sp),
                   buttonColor: NotesColor.purpleColor,
-                 text: Text('Create Password',textAlign:TextAlign.center,
-                     style: TextStyle( fontFamily: 'Poppins',
-                   fontSize: 16,
-                   fontWeight: FontWeight.w500,
-                     color: NotesColor.whiteColor)
-                   ),
+                  text: Text('Create Password',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: NotesColor.whiteColor)),
                 ),
               ),
             ],

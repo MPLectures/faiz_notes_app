@@ -1,74 +1,33 @@
+import 'package:faiz_notes_app/View/Screens/add_notes_home_screen.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:flutter/material.dart';
-import '../../layouts/layout_home.dart';
-import 'package:faiz_notes_app/Helpers/Constant.dart';
+import '../../Helpers/Constant.dart';
 import '../../controller/bottom_navigation_controller.dart';
-import '../../layouts/profile_layout.dart';
-import 'add_notes_home_screen.dart';
+import '../../layouts/layout_home.dart';
+import '../../layouts/layout_profile.dart';
 
 class HomeScreen extends StatelessWidget {
+  BottomNavigationController bottomNavigationController =
+      Get.put(BottomNavigationController());
 
-  NavigationController bottomNavigationController =
-      Get.put(NavigationController());
-
-  List layout = [
-    layout_home(),
-    ProfileLayout(),
+  final layout = [
+    LayoutHome(),
+    LayoutProfile(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 45.sp,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset(
-                'assets/Images/First Image.png',
-              ),
-              Text(
-                'Start Your Journey',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 24,
-                    fontFamily: 'Poppins',
-                    color: Colors.black),
-              ),
-              SizedBox(
-                height: 10.sp,
-              ),
-              Text(
-                'Every big step start with small step.Notes your first idea and start your journey!',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 14,
-                    fontFamily: 'Poppins',
-                    color: NotesColor.natural_darkColor),
-              ),
-              SizedBox(
-                height: 9.sp,
-              ),
-              Image.asset(
-                'assets/Images/Second Image.png',
-                width: 150,
-                height: 110,
-              ),
-            ],
-          ),
+      body: Obx(
+        () => IndexedStack(
+          index: bottomNavigationController.selectedIndex.value,
+          children: layout,
         ),
       ),
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
-
-          currentIndex: bottomNavigationController.currentIndex.value,
+          currentIndex: bottomNavigationController.selectedIndex.value,
           onTap: (Index) {
             bottomNavigationController.changeIndex(Index);
           },
@@ -80,10 +39,12 @@ class HomeScreen extends StatelessWidget {
                 Icons.home,
               ),
               label: 'Home',
+              backgroundColor: Colors.white,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.account_circle),
               label: 'Profile',
+              backgroundColor: Colors.white,
             ),
           ],
         ),
