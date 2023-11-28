@@ -2,9 +2,8 @@ import 'package:faiz_notes_app/Helpers/Constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../../Custom_Widgets/Custom_ContainerButton.dart';
-import '../../Custom_Widgets/Custom_TextFormField.dart';
-import 'notes_home_screen.dart';
+import '../../Custom Widgets/Custom_ContainerButton.dart';
+import '../../Custom Widgets/Custom_TextFormField.dart';
 import 'package:faiz_notes_app/controllers/add_note_controller.dart';
 
 class AddNotesScreen extends StatelessWidget {

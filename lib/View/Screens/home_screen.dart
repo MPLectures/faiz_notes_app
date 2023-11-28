@@ -1,17 +1,13 @@
-import 'package:faiz_notes_app/View/Screens/add_notes_home_screen.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../Helpers/Constant.dart';
-import '../../controller/bottom_navigation_controller.dart';
-import '../../layouts/layout_home.dart';
-import '../../layouts/layout_profile.dart';
+import 'package:flutter/material.dart';
+import '../layouts/layout_home.dart';
+import '../layouts/layout_profile.dart';
 import 'package:faiz_notes_app/controllers/home_controller.dart';
-import 'notes_home_screen.dart';
+import 'package:faiz_notes_app/View/Screens/add_notes_home_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     var homeController = Get.put(HomeController());
@@ -21,7 +17,9 @@ class HomeScreen extends StatelessWidget {
         () => IndexedStack(
           index: homeController.selectedIndex.value,
           children: [
-            LayoutHome(controller: homeController,),
+            LayoutHome(
+              controller: homeController,
+            ),
             LayoutProfile(),
           ],
         ),

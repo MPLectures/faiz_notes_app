@@ -16,21 +16,21 @@ class OnBoardingScreen extends StatelessWidget{
       backgroundColor: NotesColor.purpleColor,
       body: SafeArea(
         child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 16.sp),
+          padding:  EdgeInsets.symmetric(horizontal: 14.sp),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Column(
                 children: [
                   Image.asset('assets/Images/First_Image.png',
-                  width: 300, height: 300,),
+                  width: 280.sp, height: 280.sp),
                   SizedBox(height: 10.sp,),
                   Text( 'Jot Down anything you want to '
                         'achieve, today or in the future',
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w700,
-                      fontSize: 17,
+                      fontSize: 20,
                       color: NotesColor.whiteColor,
                     ),
                     textAlign: TextAlign.center,
@@ -44,6 +44,7 @@ class OnBoardingScreen extends StatelessWidget{
                 },
                 child:Container(
                   height: 45.sp,
+                  width: double.infinity,
                   decoration: BoxDecoration(
                     color: NotesColor.whiteColor,
                     borderRadius: BorderRadius.circular(100),

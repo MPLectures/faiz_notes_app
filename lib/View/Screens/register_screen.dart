@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../../Custom_Widgets/Custom_TextFormField.dart';
+import '../../Custom Widgets/Custom_TextFormField.dart';
 import '../../Helpers/Constant.dart';
 import 'home_screen.dart';
 import 'login_screen.dart';

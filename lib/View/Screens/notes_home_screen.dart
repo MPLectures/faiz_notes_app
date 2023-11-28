@@ -2,14 +2,10 @@ import 'package:faiz_notes_app/View/Screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../../Custom_Widgets/Custom_ContainerButton.dart';
+import '../../Custom Widgets/Custom_ContainerButton.dart';
 import '../../Helpers/Constant.dart';
-import '../../controller/bottom_navigation_controller.dart';
 
 class NotesHomeScreen extends StatelessWidget {
-
-  BottomNavigationController bottomNavigationController =
-  Get.put(BottomNavigationController());
 
   @override
   Widget build(BuildContext context) {

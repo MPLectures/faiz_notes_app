@@ -2,9 +2,10 @@ import 'package:faiz_notes_app/View/Screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../Helpers/Constant.dart';
-import '../View/Screens/new_password_screen.dart';
-import '../View/Screens/onBoarding_screen.dart';
+import '../../Helpers/Constant.dart';
+import '../Screens/new_password_screen.dart';
+import '../Screens/onBoarding_screen.dart';
+
 
 class LayoutProfile extends StatelessWidget {
   @override

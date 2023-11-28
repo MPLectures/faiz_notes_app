@@ -1,11 +1,12 @@
-import 'package:faiz_notes_app/View/Screens/register_screen.dart';
-import 'package:flutter/material.dart';
+import 'home_screen.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../../Custom_Widgets/Custom_TextFormField.dart';
 import '../../Helpers/Constant.dart';
 import 'for_got_password_screen.dart';
-import 'home_screen.dart';
+import 'package:flutter/material.dart';
+import '../../Custom Widgets/Custom_TextFormField.dart';
+import 'package:faiz_notes_app/View/Screens/register_screen.dart';
+
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -30,7 +31,7 @@ class LoginScreen extends StatelessWidget {
                         color: NotesColor.blackColor),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 9,
                   ),
                   Text(
                     'And notes your idea',
@@ -38,18 +39,19 @@ class LoginScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 16,
                         fontWeight: FontWeight.w400,
                         fontFamily: 'Poppins',
-                        color: NotesColor.blackColor),
+                        color: NotesColor.natural_darkColor),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 19,
                   ),
                   Text(
                     'Email Address',
                     style: TextStyle(fontSize: 16,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w500,
                         fontFamily: 'Poppins',
                         color: NotesColor.blackColor),
                   ),
+                  SizedBox(height: 2.sp,),
                   CustomTextFormField(
                     hintText: 'Example: johndoe@gmail.com',
                     hintStyle: TextStyle(
@@ -60,15 +62,15 @@ class LoginScreen extends StatelessWidget {
                     ),
                     BorderColor: BorderSide(color: NotesColor.purpleColor),
                     borderSide: BorderSide(color: NotesColor.greyColor),
-                    borderRadius: BorderRadius.circular(7),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 2.5.h,
                   ),
                   Text(
                     'Password',
                     style: TextStyle(fontSize: 16,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w500,
                         fontFamily: 'Poppins',
                         color: NotesColor.blackColor),
                   ),
@@ -82,10 +84,10 @@ class LoginScreen extends StatelessWidget {
                     ),
                     BorderColor: BorderSide(color: NotesColor.purpleColor),
                     borderSide: BorderSide(color: NotesColor.greyColor),
-                    borderRadius: BorderRadius.circular(7),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   SizedBox(
-                    height: 5,
+                    height: 3,
                   ),
                   TextButton(
                     onPressed: () {
@@ -95,13 +97,14 @@ class LoginScreen extends StatelessWidget {
                       'Forgot Password',
                       style: TextStyle(
                           fontFamily: 'Poppins',
+                          fontSize: 16,
                           color: NotesColor.purpleColor,
                           decoration: TextDecoration.underline,
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.w600),
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 5.h,
                   ),
                   GestureDetector(
                     onTap: () {
@@ -111,7 +114,7 @@ class LoginScreen extends StatelessWidget {
                     },
                     child: Container(
                       height: 52,
-                      padding: EdgeInsets.symmetric(vertical: 7.sp),
+                      padding: EdgeInsets.symmetric(vertical: 8.sp),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(100),
                           color: NotesColor.purpleColor),
@@ -191,9 +194,9 @@ class LoginScreen extends StatelessWidget {
                           ),
                           Text(
                             ' Login with Google',
-                            style: TextStyle(fontWeight: FontWeight.bold,
+                            style: TextStyle(fontWeight: FontWeight.w600,
                                 fontFamily: 'Poppins',
-                                fontSize: 13.sp,
+                                fontSize: 16,
                                 color: NotesColor.blackColor),
                             textAlign: TextAlign.center,
                           ),
@@ -209,10 +212,10 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       Text(
                         'Don’t have any account?',
-                        style: TextStyle(fontWeight: FontWeight.w500,
+                        style: TextStyle(fontWeight: FontWeight.bold,
                             fontFamily: 'Poppins',
                             color: NotesColor.purpleColor,
-                            fontSize: 13.sp),
+                            fontSize: 16),
                       ),
                       TextButton(
                         onPressed: () {
@@ -223,7 +226,7 @@ class LoginScreen extends StatelessWidget {
                           style: TextStyle(fontWeight: FontWeight.bold,
                               fontFamily: 'Poppins',
                               color: NotesColor.purpleColor,
-                              fontSize: 13.sp),
+                              fontSize: 16),
                         ),
                       ),
                     ],
