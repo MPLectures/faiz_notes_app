@@ -14,6 +14,7 @@ class CustomTextFormField extends StatelessWidget {
   InputBorder? border;
   Icon ? SuffixIcon;
  int? MaximumLine;
+ TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -37,6 +38,7 @@ class CustomTextFormField extends StatelessWidget {
           borderRadius: borderRadius,
         ),
       ),
+      controller: controller,
     );
   }
 
@@ -52,5 +54,6 @@ class CustomTextFormField extends StatelessWidget {
     this.border,
     this.MaximumLine,
     required this.borderRadius,
+    this.controller
   });
 }
