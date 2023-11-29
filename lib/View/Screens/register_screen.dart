@@ -5,10 +5,15 @@ import '../../Custom Widgets/Custom_TextFormField.dart';
 import '../../Helpers/Constant.dart';
 import 'home_screen.dart';
 import 'login_screen.dart';
+import 'package:faiz_notes_app/controllers/auth_controller.dart';
 
 class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+
+    var authController = Get.put(AuthController());
+
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
@@ -72,6 +77,7 @@ class RegisterScreen extends StatelessWidget {
                       color: NotesColor.blackColor),
                 ),
                 CustomTextFormField(
+                  controller: authController.nameController,
                   hintText: 'Faiz Muhammad',
                   hintStyle: TextStyle(
                     fontSize: 16,
@@ -102,6 +108,7 @@ class RegisterScreen extends StatelessWidget {
                     fontFamily: 'Poppins',
                     color: NotesColor.greyColor,
                   ),
+                  controller: authController.emailController,
                   BorderColor: BorderSide(color: NotesColor.purpleColor),
                   borderSide: BorderSide(color: NotesColor.greyColor),
                   borderRadius: BorderRadius.circular(7),
@@ -125,6 +132,7 @@ class RegisterScreen extends StatelessWidget {
                     fontFamily: 'Poppins',
                     color: NotesColor.greyColor,
                   ),
+                  controller: authController.passwordController,
                   BorderColor: BorderSide(color: NotesColor.purpleColor),
                   borderSide: BorderSide(color: NotesColor.greyColor),
                   borderRadius: BorderRadius.circular(7),
@@ -148,6 +156,7 @@ class RegisterScreen extends StatelessWidget {
                     fontFamily: 'Poppins',
                     color: NotesColor.greyColor,
                   ),
+                  controller: authController.confirmPasswordController,
                   BorderColor: BorderSide(color: NotesColor.purpleColor),
                   borderSide: BorderSide(color: NotesColor.greyColor),
                   borderRadius: BorderRadius.circular(7),
@@ -157,7 +166,9 @@ class RegisterScreen extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    Get.to(() => HomeScreen());
+                    // Get.to(() => HomeScreen());
+
+                    authController.registerUser();
                   },
                   child: Container(
                     height: 52,

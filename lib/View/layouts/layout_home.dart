@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:faiz_notes_app/Helpers/Constant.dart';
 import 'package:faiz_notes_app/controllers/home_controller.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:faiz_notes_app/View/Screens/login_screen.dart';
 
 class LayoutHome extends StatelessWidget {
   HomeController controller;
@@ -21,7 +23,20 @@ class LayoutHome extends StatelessWidget {
               Icons.delete,
               color: Colors.black,
             ),
-          )
+          ),
+          IconButton(
+            onPressed: () {
+              FirebaseAuth.instance.signOut().then((value) {
+                Get.offAll(LoginScreen());
+              }).catchError((error){
+                print(error);
+              });
+            },
+            icon: Icon(
+              Icons.logout,
+              color: Colors.black,
+            ),
+          ),
         ],
         backgroundColor: Colors.white,
         elevation: 0,
@@ -78,7 +93,6 @@ class LayoutHome extends StatelessWidget {
                       return Column(
                         children: [
                           Container(
-                            height: 73.sp,
                             width: double.infinity,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8.sp),

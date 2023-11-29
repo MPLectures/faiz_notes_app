@@ -6,11 +6,16 @@ import 'for_got_password_screen.dart';
 import 'package:flutter/material.dart';
 import '../../Custom Widgets/Custom_TextFormField.dart';
 import 'package:faiz_notes_app/View/Screens/register_screen.dart';
+import 'package:faiz_notes_app/controllers/auth_controller.dart';
 
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    var authController = Get.put(AuthController());
+
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -60,6 +65,7 @@ class LoginScreen extends StatelessWidget {
                       fontFamily: 'Poppins',
                       color: NotesColor.greyColor,
                     ),
+                    controller: authController.emailController,
                     BorderColor: BorderSide(color: NotesColor.purpleColor),
                     borderSide: BorderSide(color: NotesColor.greyColor),
                     borderRadius: BorderRadius.circular(8),
@@ -82,6 +88,7 @@ class LoginScreen extends StatelessWidget {
                       fontFamily: 'Poppins',
                       color: NotesColor.greyColor,
                     ),
+                    controller: authController.passwordController,
                     BorderColor: BorderSide(color: NotesColor.purpleColor),
                     borderSide: BorderSide(color: NotesColor.greyColor),
                     borderRadius: BorderRadius.circular(8),
@@ -108,9 +115,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(
-                            () => HomeScreen(),
-                      );
+                      authController.loginUser();
                     },
                     child: Container(
                       height: 52,

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "205054449801",
+    "project_id": "notes-app-d8d6b",
+    "storage_bucket": "notes-app-d8d6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:205054449801:android:ffa56aee5e6003a1b6ce58",
+        "android_client_info": {
+          "package_name": "com.example.faiz_notes_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqEY6fu-TJqNlBaRXUA7zFyptPvNgUikM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
