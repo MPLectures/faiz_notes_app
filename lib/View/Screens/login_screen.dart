@@ -27,7 +27,7 @@ class LoginScreen extends StatelessWidget {
                     textAlign: TextAlign.left,
                     style: TextStyle(fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
-                        fontSize: 32,
+                        fontSize: 20.sp,
                         color: NotesColor.blackColor),
                   ),
                   SizedBox(

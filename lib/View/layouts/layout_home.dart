@@ -34,42 +34,52 @@ class LayoutHome extends StatelessWidget {
                   children: [
                     Image.asset(
                       'assets/Images/First Image.png',
+                      height: 180.sp,
+                      width: 180.sp,
                     ),
                     Text(
                       'Start Your Journey',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24, fontFamily: 'Poppins', color: Colors.black),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20.sp,
+                          fontFamily: 'Poppins',
+                          color: Colors.black),
                     ),
                     SizedBox(
-                      height: 10.sp,
+                      height: 7.sp,
                     ),
                     Text(
-                      'Every big step start with small step.Notes your first idea and start your journey!',
+                      'Every big step start with small step.Notes'
+                      'your first idea and start your journey!',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14, fontFamily: 'Poppins', color: NotesColor.natural_darkColor),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins',
+                          color: NotesColor.natural_darkColor),
                     ),
                     SizedBox(
-                      height: 9.sp,
+                      height: 7.sp,
                     ),
                     Image.asset(
                       'assets/Images/Second Image.png',
-                      width: 150,
-                      height: 110,
+                      width: 130.sp,
+                      height: 80.sp,
                     ),
                   ],
-                ).paddingAll(45.sp)
+                ).paddingAll(10.sp)
               : Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15.sp),
+                  padding: EdgeInsets.symmetric(horizontal: 12.sp),
                   child: ListView.builder(
                     itemCount: controller.savedNotes.length,
                     itemBuilder: (_, index) {
-
                       var item = controller.savedNotes[index];
-
                       return Column(
                         children: [
                           Container(
-                            height: 70.sp,
+                            height: 73.sp,
+                            width: double.infinity,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8.sp),
                               color: NotesColor.purpleColor,
@@ -77,14 +87,16 @@ class LayoutHome extends StatelessWidget {
                             child: ListTile(
                               leading: CircleAvatar(
                                 backgroundColor: NotesColor.dark_purple,
-                                radius: 19,
-                                child: Image.asset('assets/Images/light-bulb.png', color: Colors.white),
+                                radius: 18.sp,
+                                child: Image.asset(
+                                    'assets/Images/light-bulb.png',
+                                    color: Colors.white),
                               ),
                               title: Text(
                                 item.title,
                                 style: TextStyle(
                                   color: NotesColor.whiteColor,
-                                  fontSize: 16,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
                                   fontFamily: 'Poppins',
                                 ),
@@ -93,7 +105,7 @@ class LayoutHome extends StatelessWidget {
                                 item.message,
                                 style: TextStyle(
                                   color: NotesColor.primaryColor,
-                                  fontSize: 13,
+                                  fontSize: 12.sp,
                                   fontWeight: FontWeight.w400,
                                   fontFamily: 'Poppins',
                                 ),
@@ -101,8 +113,9 @@ class LayoutHome extends StatelessWidget {
                             ),
                           ),
                           Divider(
+                            thickness: 1,
                             color: NotesColor.whiteColor,
-                          )
+                          ),
                         ],
                       );
                     },

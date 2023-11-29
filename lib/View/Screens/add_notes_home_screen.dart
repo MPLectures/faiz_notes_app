@@ -20,7 +20,11 @@ class AddNotesScreen extends StatelessWidget {
         elevation: 0,
         title: Text(
           'Add Notes',
-          style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600, fontSize: 24.sp, color: NotesColor.blackColor),
+          style: TextStyle(
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w600,
+              fontSize: 19.sp,
+              color: NotesColor.blackColor),
           textAlign: TextAlign.center,
         ),
       ),
@@ -35,7 +39,11 @@ class AddNotesScreen extends StatelessWidget {
               ),
               Text(
                 'Name',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, fontFamily: 'Poppins', color: NotesColor.natural_black),
+                style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'Poppins',
+                    color: NotesColor.natural_black),
               ),
               SizedBox(
                 height: 5.sp,
@@ -43,37 +51,50 @@ class AddNotesScreen extends StatelessWidget {
               CustomTextFormField(
                 hintText: 'Muhammad Ali Hassan Shaikh',
                 controller: controller.titleController,
-                hintStyle: TextStyle(color: NotesColor.blackColor, fontSize: 11, fontWeight: FontWeight.w300, fontFamily: 'Poppins'),
+                hintStyle: TextStyle(
+                    color: NotesColor.blackColor,
+                    fontSize: 11.sp,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: 'Poppins'),
                 borderRadius: BorderRadius.circular(8.sp),
                 fillColor: NotesColor.light_grey,
                 falseColor: true,
                 border: InputBorder.none,
                 SuffixIcon: Icon(Icons.cancel_outlined),
-                BorderColor: BorderSide(),
-                borderSide: BorderSide(),
+                BorderColor: BorderSide(color: NotesColor.purpleColor),
+                borderSide: BorderSide(color: NotesColor.light_grey),
               ),
-              SizedBox(
-                height: 2.h,
-              ),
+              SizedBox(height: 4.h,),
               Text(
                 ' Write your data here',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, fontFamily: 'Poppins', color: NotesColor.natural_black),
+                style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'Poppins',
+                    color: NotesColor.natural_black),
                 textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 5.sp,
               ),
               CustomTextFormField(
                 MaximumLine: 10,
                 controller: controller.messageController,
                 hintText: '*************************',
-                hintStyle: TextStyle(color: NotesColor.blackColor, fontSize: 11, fontWeight: FontWeight.w300, fontFamily: 'Poppins'),
+                hintStyle: TextStyle(
+                    color: NotesColor.blackColor,
+                    fontSize: 11.sp,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: 'Poppins'),
                 borderRadius: BorderRadius.circular(8.sp),
                 fillColor: NotesColor.light_grey,
                 falseColor: true,
                 border: InputBorder.none,
-                BorderColor: BorderSide(),
-                borderSide: BorderSide(),
+                BorderColor: BorderSide( color: NotesColor.purpleColor),
+                borderSide: BorderSide(color: NotesColor.light_grey),
               ),
               SizedBox(
-                height: 2.h,
+                height: 13.h,
               ),
               GestureDetector(
                 onTap: () {
@@ -81,13 +102,17 @@ class AddNotesScreen extends StatelessWidget {
                   Get.back();
                 },
                 child: CustomContainerButton(
-                  customHeight: 52,
+                  customHeight: 42.sp,
                   customWidth: 280.sp,
                   borderRadius: BorderRadius.circular(8.sp),
                   buttonColor: NotesColor.purpleColor,
                   text: Text('Save',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'Poppins', fontSize: 16, fontWeight: FontWeight.w500, color: NotesColor.whiteColor)),
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.w500,
+                          color: NotesColor.whiteColor)),
                 ),
               ),
             ],
