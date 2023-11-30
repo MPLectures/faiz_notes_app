@@ -7,14 +7,12 @@ import 'package:flutter/material.dart';
 import '../../Custom Widgets/Custom_TextFormField.dart';
 import 'package:faiz_notes_app/View/Screens/register_screen.dart';
 import 'package:faiz_notes_app/controllers/auth_controller.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     var authController = Get.put(AuthController());
-
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -30,10 +28,7 @@ class LoginScreen extends StatelessWidget {
                   Text(
                     'Let’s Login',
                     textAlign: TextAlign.left,
-                    style: TextStyle(fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20.sp,
-                        color: NotesColor.blackColor),
+                    style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600, fontSize: 20.sp, color: NotesColor.blackColor),
                   ),
                   SizedBox(
                     height: 9,
@@ -41,22 +36,18 @@ class LoginScreen extends StatelessWidget {
                   Text(
                     'And notes your idea',
                     textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'Poppins',
-                        color: NotesColor.natural_darkColor),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, fontFamily: 'Poppins', color: NotesColor.natural_darkColor),
                   ),
                   SizedBox(
                     height: 19,
                   ),
                   Text(
                     'Email Address',
-                    style: TextStyle(fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Poppins',
-                        color: NotesColor.blackColor),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, fontFamily: 'Poppins', color: NotesColor.blackColor),
                   ),
-                  SizedBox(height: 2.sp,),
+                  SizedBox(
+                    height: 2.sp,
+                  ),
                   CustomTextFormField(
                     hintText: 'Example: johndoe@gmail.com',
                     hintStyle: TextStyle(
@@ -75,10 +66,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   Text(
                     'Password',
-                    style: TextStyle(fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Poppins',
-                        color: NotesColor.blackColor),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, fontFamily: 'Poppins', color: NotesColor.blackColor),
                   ),
                   CustomTextFormField(
                     hintText: '*******',
@@ -114,34 +102,70 @@ class LoginScreen extends StatelessWidget {
                     height: 5.h,
                   ),
                   GestureDetector(
-                    onTap: () {
-                      authController.loginUser();
-                    },
-                    child: Container(
-                      height: 52,
-                      padding: EdgeInsets.symmetric(vertical: 8.sp),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                          color: NotesColor.purpleColor),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          SizedBox(),
-                          Text(
-                            'Login',
-                            style: TextStyle(fontWeight: FontWeight.w500,
-                                fontFamily: 'Poppins',
-                                fontSize: 16.sp,
-                                color: NotesColor.whiteColor),
-                            textAlign: TextAlign.center,
-                          ),
-                          Icon(
-                            Icons.arrow_forward_outlined,
-                            color: NotesColor.whiteColor,
-                          ),
-                        ],
-                      ),
-                    ),
+                    onTap: authController.loading.isTrue
+                        ? null
+                        : () async {
+                            var response = await authController.loginUser();
+
+                            if (response == 'success') {
+                              Get.offAll(HomeScreen());
+                            } else {
+                              var emailNotVerifiedError = response.toLowerCase().contains("email not verified");
+
+                              showDialog(
+                                context: context,
+                                builder: (_) => AlertDialog(
+                                  title: Text("Alert"),
+                                  content: Text(response),
+                                  actions: [
+                                    if (emailNotVerifiedError)
+                                      ElevatedButton(
+                                          onPressed: () async {
+                                            FirebaseAuth.instance.currentUser?.sendEmailVerification();
+                                            FirebaseAuth.instance.signOut();
+                                            Get.back();
+                                          },
+                                          child: Text("Resend email"))
+                                  ],
+                                ),
+                                barrierDismissible: false
+                              );
+                            }
+                          },
+                    child: Obx(() {
+                      return Container(
+                        height: 52,
+                        padding: EdgeInsets.symmetric(vertical: 8.sp),
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(100), color: NotesColor.purpleColor),
+                        child: authController.loading.isTrue
+                            ? Center(
+                                child: SizedBox(
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                    strokeWidth: 2,
+                                  ),
+                                  height: 20,
+                                  width: 20,
+                                ),
+                              )
+                            : Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  SizedBox(),
+                                  Text(
+                                    'Login',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w500, fontFamily: 'Poppins', fontSize: 16.sp, color: NotesColor.whiteColor),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_outlined,
+                                    color: NotesColor.whiteColor,
+                                  ),
+                                ],
+                              ),
+                      );
+                    }),
                   ),
                   SizedBox(
                     height: 10,
@@ -176,7 +200,7 @@ class LoginScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       Get.to(
-                            () => HomeScreen(),
+                        () => HomeScreen(),
                       );
                     },
                     child: Container(
@@ -199,10 +223,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                           Text(
                             ' Login with Google',
-                            style: TextStyle(fontWeight: FontWeight.w600,
-                                fontFamily: 'Poppins',
-                                fontSize: 16,
-                                color: NotesColor.blackColor),
+                            style: TextStyle(fontWeight: FontWeight.w600, fontFamily: 'Poppins', fontSize: 16, color: NotesColor.blackColor),
                             textAlign: TextAlign.center,
                           ),
                         ],
@@ -217,10 +238,7 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       Text(
                         'Don’t have any account?',
-                        style: TextStyle(fontWeight: FontWeight.bold,
-                            fontFamily: 'Poppins',
-                            color: NotesColor.purpleColor,
-                            fontSize: 16),
+                        style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Poppins', color: NotesColor.purpleColor, fontSize: 16),
                       ),
                       TextButton(
                         onPressed: () {
@@ -228,10 +246,7 @@ class LoginScreen extends StatelessWidget {
                         },
                         child: Text(
                           'Register here',
-                          style: TextStyle(fontWeight: FontWeight.bold,
-                              fontFamily: 'Poppins',
-                              color: NotesColor.purpleColor,
-                              fontSize: 16),
+                          style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Poppins', color: NotesColor.purpleColor, fontSize: 16),
                         ),
                       ),
                     ],

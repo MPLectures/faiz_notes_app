@@ -9,24 +9,53 @@ class AuthController extends GetxController {
   var passwordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
 
+  var loading = false.obs;
+
   void registerUser() async {
     if (passwordController.text != confirmPasswordController.text) {
       Get.snackbar("Error", "Passwords don't match", backgroundColor: Colors.red, colorText: Colors.white);
       return;
     }
+    loading.value = true;
 
-    FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text, password: passwordController.text).then((value) {
-      Get.to(HomeScreen());
-    }).catchError((error){
+    FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text, password: passwordController.text).then((value) async {
+      await FirebaseAuth.instance.currentUser?.updateDisplayName(nameController.text);
+      loading.value = false;
+
+      Get.offAll(HomeScreen());
+    }).catchError((error) {
+      loading.value = false;
+
       print(error);
     });
   }
-  void loginUser() async {
 
-    FirebaseAuth.instance.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text).then((value) {
-      Get.to(HomeScreen());
-    }).catchError((error){
+  Future<String> loginUser() async {
+    loading.value = true;
+
+    String response = '';
+
+    await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text).then((value) async {
+      loading.value = false;
+
+      await FirebaseAuth.instance.currentUser?.reload();
+
+      var verified = FirebaseAuth.instance.currentUser?.emailVerified ?? false;
+      response = verified ? 'success' : 'Email not verified yet';
+      // if (!verified) {
+      //   await FirebaseAuth.instance.signOut();
+      // }
+    }).catchError((error) {
+      loading.value = false;
+      response = error.toString();
       print(error);
     });
+
+    return response;
+  }
+
+  void sendForgotPassEmail() async {
+    var email = emailController.text;
+    FirebaseAuth.instance.sendPasswordResetEmail(email: email);
   }
 }

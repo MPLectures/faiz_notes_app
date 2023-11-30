@@ -10,8 +10,6 @@ import 'package:faiz_notes_app/controllers/auth_controller.dart';
 class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-
     var authController = Get.put(AuthController());
 
     return Scaffold(
@@ -165,37 +163,45 @@ class RegisterScreen extends StatelessWidget {
                   height: 5.h,
                 ),
                 TextButton(
-                  onPressed: () {
+                  onPressed: authController.loading.isTrue ? null : () {
                     // Get.to(() => HomeScreen());
 
                     authController.registerUser();
                   },
-                  child: Container(
-                    height: 52,
-                    padding: EdgeInsets.symmetric(vertical: 10.sp),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        color: NotesColor.purpleColor),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        SizedBox(),
-                        Text(
-                          'Register',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'Poppins',
-                              fontSize: 16.sp,
-                              color: NotesColor.whiteColor),
-                          textAlign: TextAlign.center,
+                  child: Obx(() {
+                    return Container(
+                      height: 52,
+                      padding: EdgeInsets.symmetric(vertical: 10.sp),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          color: NotesColor.purpleColor),
+                      child: authController.loading.isTrue ? Center(child: SizedBox(
+                        child: CircularProgressIndicator(
+                          color: Colors.white,
                         ),
-                        Icon(
-                          Icons.arrow_forward_outlined,
-                          color: NotesColor.whiteColor,
-                        ),
-                      ],
-                    ),
-                  ),
+                        height: 20,
+                        width: 20,
+                      ),) : Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          SizedBox(),
+                          Text(
+                            'Register',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Poppins',
+                                fontSize: 16.sp,
+                                color: NotesColor.whiteColor),
+                            textAlign: TextAlign.center,
+                          ),
+                          Icon(
+                            Icons.arrow_forward_outlined,
+                            color: NotesColor.whiteColor,
+                          ),
+                        ],
+                      ),
+                    );
+                  }),
                 ),
                 SizedBox(
                   height: 5.sp,
@@ -234,7 +240,7 @@ class RegisterScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 10.sp),
                     decoration: BoxDecoration(
                       border:
-                          Border.all(color: NotesColor.greyColor, width: 1.sp),
+                      Border.all(color: NotesColor.greyColor, width: 1.sp),
                       borderRadius: BorderRadius.circular(100),
                       color: NotesColor.whiteColor,
                     ),

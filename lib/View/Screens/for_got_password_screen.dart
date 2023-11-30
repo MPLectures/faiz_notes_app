@@ -4,10 +4,14 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../Custom Widgets/Custom_TextFormField.dart';
 import 'login_screen.dart';
+import 'package:faiz_notes_app/controllers/auth_controller.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    var authController = Get.put(AuthController());
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -88,6 +92,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                         fontFamily: 'Poppins',
                         color: NotesColor.greyColor,
                       ),
+                      controller: authController.emailController,
                       BorderColor: BorderSide(color: NotesColor.purpleColor),
                       borderSide: BorderSide(color: NotesColor.greyColor),
                       borderRadius: BorderRadius.circular(7),
@@ -105,7 +110,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                       ),
                       child: GestureDetector(
                         onTap: () {
-                          Get.to(() => LoginScreen());
+                          authController.sendForgotPassEmail();
+                          Get.back();
                         },
                         child: Text(
                           'Send Code',
