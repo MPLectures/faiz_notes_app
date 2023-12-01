@@ -1,9 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
 import 'package:faiz_notes_app/Helpers/Constant.dart';
 import 'package:faiz_notes_app/controllers/home_controller.dart';
 import 'package:get/get.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:faiz_notes_app/View/Screens/login_screen.dart';
 
 class LayoutHome extends StatelessWidget {

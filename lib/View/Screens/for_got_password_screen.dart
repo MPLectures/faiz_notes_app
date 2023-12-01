@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../Custom Widgets/Custom_TextFormField.dart';
-import 'login_screen.dart';
 import 'package:faiz_notes_app/controllers/auth_controller.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
 
@@ -97,11 +97,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                       borderSide: BorderSide(color: NotesColor.greyColor),
                       borderRadius: BorderRadius.circular(7),
                     ),
-                    SizedBox(
-                      height: 7.h,
-                    ),
+                    SizedBox( height: 7.h,),
                     Container(
-                      width: 340,
+                      width: 350.sp,
                       height: 52,
                       padding: EdgeInsets.symmetric(vertical: 10.sp),
                       decoration: BoxDecoration(
@@ -114,7 +112,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                           Get.back();
                         },
                         child: Text(
-                          'Send Code',
+                          'Send Email',
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontFamily: 'Poppins',
