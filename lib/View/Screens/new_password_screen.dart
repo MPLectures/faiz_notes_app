@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../Custom Widgets/Custom_TextFormField.dart';
-import '../../Custom Widgets/Custom_ContainerButton.dart';
 import '../../Helpers/Constant.dart';
 
 class NewPasswordScreen extends StatelessWidget {
@@ -15,24 +14,24 @@ class NewPasswordScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: NotesColor.whiteColor,
         elevation: 0,
-        leading: TextButton(
+        leading: IconButton(
           onPressed: () {
             Get.back();
           },
-          child: Icon(
+          icon: Icon(
             Icons.arrow_back_ios_new_outlined,
             color: NotesColor.purpleColor,
-            size: 14,
+            size: 18,
           ),
         ),
+        centerTitle: true,
         title: Text(
           'Back to Login',
           style: TextStyle(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w300,
-            fontFamily: 'Poppins',
-            color: NotesColor.purpleColor,
-          ),
+              fontSize: 16,
+              color: NotesColor.purpleColor,
+              fontWeight: FontWeight.w500,
+              fontFamily: 'Poppins'),
         ),
       ),
       body: SafeArea(
@@ -123,23 +122,25 @@ class NewPasswordScreen extends StatelessWidget {
               SizedBox(
                 height: 10.h,
               ),
-              GestureDetector(
-                onTap: () {
-                  Get.to(() => LoginScreen());
-                },
-                child: CustomContainerButton(
-                  customHeight: 52,
-                  customWidth: 280.sp,
-                  borderRadius: BorderRadius.circular(10.sp),
-                  buttonColor: NotesColor.purpleColor,
-                  text: Text('Create Password',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: NotesColor.whiteColor)),
-                ),
+              SizedBox(
+                height: 54,
+                width: double.infinity,
+                child: ElevatedButton(
+                    onPressed: () {
+                      Get.to(() => LoginScreen());
+                    },
+                    child: Text('Create Password',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: NotesColor.whiteColor)),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: NotesColor.purpleColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ))),
               ),
             ],
           ),

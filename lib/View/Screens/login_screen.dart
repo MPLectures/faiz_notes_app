@@ -28,7 +28,11 @@ class LoginScreen extends StatelessWidget {
                   Text(
                     'Let’s Login',
                     textAlign: TextAlign.left,
-                    style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600, fontSize: 20.sp, color: NotesColor.blackColor),
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20.sp,
+                        color: NotesColor.blackColor),
                   ),
                   SizedBox(
                     height: 9,
@@ -36,14 +40,22 @@ class LoginScreen extends StatelessWidget {
                   Text(
                     'And notes your idea',
                     textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, fontFamily: 'Poppins', color: NotesColor.natural_darkColor),
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Poppins',
+                        color: NotesColor.natural_darkColor),
                   ),
                   SizedBox(
                     height: 19,
                   ),
                   Text(
                     'Email Address',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, fontFamily: 'Poppins', color: NotesColor.blackColor),
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Poppins',
+                        color: NotesColor.blackColor),
                   ),
                   SizedBox(
                     height: 2.sp,
@@ -66,7 +78,11 @@ class LoginScreen extends StatelessWidget {
                   ),
                   Text(
                     'Password',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, fontFamily: 'Poppins', color: NotesColor.blackColor),
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Poppins',
+                        color: NotesColor.blackColor),
                   ),
                   CustomTextFormField(
                     hintText: '*******',
@@ -110,33 +126,39 @@ class LoginScreen extends StatelessWidget {
                             if (response == 'success') {
                               Get.offAll(HomeScreen());
                             } else {
-                              var emailNotVerifiedError = response.toLowerCase().contains("email not verified");
+                              var emailNotVerifiedError = response
+                                  .toLowerCase()
+                                  .contains("email not verified");
 
                               showDialog(
-                                context: context,
-                                builder: (_) => AlertDialog(
-                                  title: Text("Alert"),
-                                  content: Text(response),
-                                  actions: [
-                                    if (emailNotVerifiedError)
-                                      ElevatedButton(
-                                          onPressed: () async {
-                                            FirebaseAuth.instance.currentUser?.sendEmailVerification();
-                                            FirebaseAuth.instance.signOut();
-                                            Get.back();
-                                          },
-                                          child: Text("Resend email"))
-                                  ],
-                                ),
-                                barrierDismissible: false
-                              );
+                                  context: context,
+                                  builder: (_) => AlertDialog(
+                                        title: Text("Alert"),
+                                        content: Text(response),
+                                        actions: [
+                                          if (emailNotVerifiedError)
+                                            ElevatedButton(
+                                                onPressed: () async {
+                                                  FirebaseAuth
+                                                      .instance.currentUser
+                                                      ?.sendEmailVerification();
+                                                  FirebaseAuth.instance
+                                                      .signOut();
+                                                  Get.back();
+                                                },
+                                                child: Text("Resend email"))
+                                        ],
+                                      ),
+                                  barrierDismissible: false);
                             }
                           },
                     child: Obx(() {
                       return Container(
                         height: 52,
                         padding: EdgeInsets.symmetric(vertical: 8.sp),
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(100), color: NotesColor.purpleColor),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: NotesColor.purpleColor),
                         child: authController.loading.isTrue
                             ? Center(
                                 child: SizedBox(
@@ -148,21 +170,38 @@ class LoginScreen extends StatelessWidget {
                                   width: 20,
                                 ),
                               )
-                            : Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  SizedBox(),
-                                  Text(
-                                    'Login',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.w500, fontFamily: 'Poppins', fontSize: 16.sp, color: NotesColor.whiteColor),
-                                    textAlign: TextAlign.center,
+                            : SizedBox(
+                                height: 55,
+                                width: double.infinity,
+                                child: ElevatedButton(
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      SizedBox(),
+                                      Text(
+                                        'Login',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontFamily: 'Poppins',
+                                            fontSize: 16.sp,
+                                            color: NotesColor.whiteColor),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      Icon(
+                                        Icons.arrow_forward_outlined,
+                                        color: NotesColor.whiteColor,
+                                      ),
+                                    ],
                                   ),
-                                  Icon(
-                                    Icons.arrow_forward_outlined,
-                                    color: NotesColor.whiteColor,
-                                  ),
-                                ],
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: NotesColor.purpleColor,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(100),
+                                      )),
+                                ),
                               ),
                       );
                     }),
@@ -197,19 +236,10 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Get.to(
-                        () => HomeScreen(),
-                      );
-                    },
-                    child: Container(
-                      height: 52,
-                      padding: EdgeInsets.symmetric(vertical: 10.sp),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        color: NotesColor.naturalLight,
-                      ),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 52,
+                    child: OutlinedButton(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -223,10 +253,26 @@ class LoginScreen extends StatelessWidget {
                           ),
                           Text(
                             ' Login with Google',
-                            style: TextStyle(fontWeight: FontWeight.w600, fontFamily: 'Poppins', fontSize: 16, color: NotesColor.blackColor),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Poppins',
+                                fontSize: 16,
+                                color: NotesColor.blackColor),
                             textAlign: TextAlign.center,
                           ),
                         ],
+                      ),
+                      onPressed: () {
+                        Get.to(
+                          () => HomeScreen(),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        side: BorderSide(
+                          color: NotesColor.greyColor,
+                        ),
+                        backgroundColor: NotesColor.naturalLight,
+                        shape: StadiumBorder(),
                       ),
                     ),
                   ),
@@ -238,7 +284,11 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       Text(
                         'Don’t have any account?',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Poppins', color: NotesColor.purpleColor, fontSize: 16),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Poppins',
+                            color: NotesColor.purpleColor,
+                            fontSize: 16),
                       ),
                       TextButton(
                         onPressed: () {
@@ -246,7 +296,11 @@ class LoginScreen extends StatelessWidget {
                         },
                         child: Text(
                           'Register here',
-                          style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Poppins', color: NotesColor.purpleColor, fontSize: 16),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Poppins',
+                              color: NotesColor.purpleColor,
+                              fontSize: 16),
                         ),
                       ),
                     ],

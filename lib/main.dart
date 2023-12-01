@@ -25,7 +25,9 @@ class MyApp extends StatelessWidget {
     return Sizer(
       builder: (context, orientation, deviceType) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: FirebaseAuth.instance.currentUser == null ? OnBoardingScreen() : HomeScreen(),
+        home: FirebaseAuth.instance.currentUser == null
+            ? OnBoardingScreen()
+            : HomeScreen(),
         theme: ThemeData(useMaterial3: false),
       ),
     );

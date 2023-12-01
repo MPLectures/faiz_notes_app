@@ -6,10 +6,8 @@ import '../../Custom Widgets/Custom_TextFormField.dart';
 import 'package:faiz_notes_app/controllers/auth_controller.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
     var authController = Get.put(AuthController());
 
     return Scaffold(
@@ -17,16 +15,18 @@ class ForgotPasswordScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: NotesColor.whiteColor,
-        leading: TextButton(
+        elevation: 0,
+        leading: IconButton(
           onPressed: () {
             Get.back();
           },
-          child: Icon(
+          icon: Icon(
             Icons.arrow_back_ios_new_outlined,
             color: NotesColor.purpleColor,
-            size: 14,
+            size: 18,
           ),
         ),
+        centerTitle: true,
         title: Text(
           'Back to Login',
           style: TextStyle(
@@ -35,7 +35,6 @@ class ForgotPasswordScreen extends StatelessWidget {
               fontWeight: FontWeight.w500,
               fontFamily: 'Poppins'),
         ),
-        elevation: 0,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -84,6 +83,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                           fontFamily: 'Poppins',
                           color: NotesColor.blackColor),
                     ),
+                    SizedBox(
+                      height: 5.sp,
+                    ),
                     CustomTextFormField(
                       hintText: 'anto_michael@gmail.com',
                       hintStyle: TextStyle(
@@ -97,30 +99,31 @@ class ForgotPasswordScreen extends StatelessWidget {
                       borderSide: BorderSide(color: NotesColor.greyColor),
                       borderRadius: BorderRadius.circular(7),
                     ),
-                    SizedBox( height: 7.h,),
-                    Container(
-                      width: 350.sp,
-                      height: 52,
-                      padding: EdgeInsets.symmetric(vertical: 10.sp),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100.sp),
-                        color: NotesColor.purpleColor,
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          authController.sendForgotPassEmail();
-                          Get.back();
-                        },
-                        child: Text(
-                          'Send Email',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'Poppins',
-                              fontSize: 15.sp,
-                              color: NotesColor.whiteColor),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
+                    SizedBox(
+                      height: 7.h,
+                    ),
+                    SizedBox(
+                      height: 54,
+                      width: double.infinity,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            authController.sendForgotPassEmail();
+                            Get.back();
+                          },
+                          child: Text(
+                            'Send Email',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Poppins',
+                                fontSize: 15.sp,
+                                color: NotesColor.whiteColor),
+                            textAlign: TextAlign.center,
+                          ),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: NotesColor.purpleColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ))),
                     ),
                   ],
                 ),

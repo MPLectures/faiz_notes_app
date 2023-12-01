@@ -17,16 +17,18 @@ class RegisterScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: NotesColor.whiteColor,
-        leading: TextButton(
+        elevation: 0,
+        leading: IconButton(
           onPressed: () {
             Get.back();
           },
-          child: Icon(
+          icon: Icon(
             Icons.arrow_back_ios_new_outlined,
             color: NotesColor.purpleColor,
-            size: 14,
+            size: 18,
           ),
         ),
+        centerTitle: true,
         title: Text(
           'Back to Login',
           style: TextStyle(
@@ -35,7 +37,6 @@ class RegisterScreen extends StatelessWidget {
               fontWeight: FontWeight.w500,
               fontFamily: 'Poppins'),
         ),
-        elevation: 0,
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -163,45 +164,57 @@ class RegisterScreen extends StatelessWidget {
                   height: 5.h,
                 ),
                 TextButton(
-                  onPressed: authController.loading.isTrue ? null : () {
-                    // Get.to(() => HomeScreen());
+                  onPressed: authController.loading.isTrue
+                      ? null
+                      : () {
+                          // Get.to(() => HomeScreen());
 
-                    authController.registerUser();
-                  },
-                  child: Obx(() {
-                    return Container(
-                      height: 52,
-                      padding: EdgeInsets.symmetric(vertical: 10.sp),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                          color: NotesColor.purpleColor),
-                      child: authController.loading.isTrue ? Center(child: SizedBox(
-                        child: CircularProgressIndicator(
-                          color: Colors.white,
-                        ),
-                        height: 20,
-                        width: 20,
-                      ),) : Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          SizedBox(),
-                          Text(
-                            'Register',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontFamily: 'Poppins',
-                                fontSize: 16.sp,
-                                color: NotesColor.whiteColor),
-                            textAlign: TextAlign.center,
-                          ),
-                          Icon(
-                            Icons.arrow_forward_outlined,
-                            color: NotesColor.whiteColor,
-                          ),
-                        ],
+                          authController.registerUser();
+                        },
+                  child: Obx(
+                    () => SizedBox(
+                      height: 55,
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        child: authController.loading.isTrue
+                            ? Center(
+                                child: SizedBox(
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                  ),
+                                  height: 20,
+                                  width: 20,
+                                ),
+                              )
+                            : Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  SizedBox(),
+                                  Text(
+                                    'Register',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily: 'Poppins',
+                                        fontSize: 16.sp,
+                                        color: NotesColor.whiteColor),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_outlined,
+                                    color: NotesColor.whiteColor,
+                                  ),
+                                ],
+                              ),
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: NotesColor.purpleColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            )),
                       ),
-                    );
-                  }),
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: 5.sp,
@@ -231,19 +244,10 @@ class RegisterScreen extends StatelessWidget {
                 SizedBox(
                   height: 5.sp,
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Get.to(() => HomeScreen());
-                  },
-                  child: Container(
-                    height: 52,
-                    padding: EdgeInsets.symmetric(vertical: 10.sp),
-                    decoration: BoxDecoration(
-                      border:
-                      Border.all(color: NotesColor.greyColor, width: 1.sp),
-                      borderRadius: BorderRadius.circular(100),
-                      color: NotesColor.whiteColor,
-                    ),
+                SizedBox(
+                  width: double.infinity,
+                  height: 52,
+                  child: OutlinedButton(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -264,6 +268,16 @@ class RegisterScreen extends StatelessWidget {
                         ),
                       ],
                     ),
+                    onPressed: () {
+                      Get.to(() => HomeScreen());
+                    },
+                    style: ElevatedButton.styleFrom(
+                      side: BorderSide(
+                        color: NotesColor.greyColor,
+                      ),
+                      backgroundColor: NotesColor.naturalLight,
+                      shape: StadiumBorder(),
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -280,8 +294,8 @@ class RegisterScreen extends StatelessWidget {
                           color: NotesColor.purpleColor,
                           fontSize: 13.sp),
                     ),
-                    GestureDetector(
-                      onTap: () {
+                    TextButton(
+                      onPressed: () {
                         Get.to(() => LoginScreen());
                       },
                       child: Container(

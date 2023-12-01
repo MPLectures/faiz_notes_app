@@ -2,7 +2,6 @@ import 'package:faiz_notes_app/Helpers/Constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../../Custom Widgets/Custom_ContainerButton.dart';
 import '../../Custom Widgets/Custom_TextFormField.dart';
 import 'package:faiz_notes_app/controllers/add_note_controller.dart';
 
@@ -64,7 +63,9 @@ class AddNotesScreen extends StatelessWidget {
                 BorderColor: BorderSide(color: NotesColor.purpleColor),
                 borderSide: BorderSide(color: NotesColor.light_grey),
               ),
-              SizedBox(height: 4.h,),
+              SizedBox(
+                height: 4.h,
+              ),
               Text(
                 ' Write your data here',
                 style: TextStyle(
@@ -90,30 +91,32 @@ class AddNotesScreen extends StatelessWidget {
                 fillColor: NotesColor.light_grey,
                 falseColor: true,
                 border: InputBorder.none,
-                BorderColor: BorderSide( color: NotesColor.purpleColor),
+                BorderColor: BorderSide(color: NotesColor.purpleColor),
                 borderSide: BorderSide(color: NotesColor.light_grey),
               ),
               SizedBox(
                 height: 13.h,
               ),
-              GestureDetector(
-                onTap: () {
-                  controller.saveNote();
-                  Get.back();
-                },
-                child: CustomContainerButton(
-                  customHeight: 42.sp,
-                  customWidth: 280.sp,
-                  borderRadius: BorderRadius.circular(8.sp),
-                  buttonColor: NotesColor.purpleColor,
-                  text: Text('Save',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 13.sp,
-                          fontWeight: FontWeight.w500,
-                          color: NotesColor.whiteColor)),
-                ),
+              SizedBox(
+                height: 54,
+                width: double.infinity,
+                child: ElevatedButton(
+                    onPressed: () {
+                      controller.saveNote();
+                      Get.back();
+                    },
+                    child: Text('Save',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 13.sp,
+                            fontWeight: FontWeight.w500,
+                            color: NotesColor.whiteColor)),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: NotesColor.purpleColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ))),
               ),
             ],
           ),
