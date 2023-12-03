@@ -8,6 +8,7 @@ import '../Screens/onBoarding_screen.dart';
 
 
 class LayoutProfile extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,41 +72,37 @@ class LayoutProfile extends StatelessWidget {
               SizedBox(
                 height: 3.h,
               ),
-              Container(
-                  height: 40.sp,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: NotesColor.whiteColor,
-                    border: Border.all(color: NotesColor.purpleColor),
+              SizedBox(
+                width: double.infinity,
+                height: 40,
+                child: OutlinedButton.icon(
+                  icon: Image.asset(
+                    'assets/Images/pencil-alt.png',
+                    height: 20,
+                    width: 20,
+                    color: NotesColor.purpleColor,
                   ),
-                  child: TextButton(
-                    onPressed: () {
-                      Get.to(() => RegisterScreen());
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/Images/pencil-alt.png',
-                          height: 17.sp,
-                          width: 17.sp,
-                          color: NotesColor.purpleColor,
-                        ),
-                        SizedBox(
-                          width: 4.sp,
-                        ),
-                        Text(
-                          'Edit Profile',
-                          style: TextStyle(
-                            fontFamily: 'poppins',
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w700,
-                            color: NotesColor.purpleColor,
-                          ),
-                        ),
-                      ],
+                  label: Text(
+                    'Edit Profile',
+                    style: TextStyle(
+                      fontFamily: 'poppins',
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: NotesColor.purpleColor,
                     ),
-                  )),
+                  ),
+                  onPressed: () {
+                    Get.to(() => RegisterScreen());
+                  },
+                  style: ElevatedButton.styleFrom(
+                    side: BorderSide(
+                      color: NotesColor.purpleColor,
+                    ),
+                    backgroundColor: NotesColor.whiteColor,
+                    shape: StadiumBorder(),
+                  ),
+                ),
+              ),
               SizedBox(
                 height: 5.h,
               ),
@@ -124,16 +121,11 @@ class LayoutProfile extends StatelessWidget {
               SizedBox(
                 height: 3.sp,
               ),
-              GestureDetector(
-                onTap: () {
-                  Get.to(() => NewPasswordScreen());
-                },
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 7.sp),
-                  decoration: BoxDecoration(
-                    color: NotesColor.whiteColor,
-                    border: Border.all(color: NotesColor.whiteColor),
-                  ),
+              SizedBox(
+                width: double.infinity,
+                height: 56,
+                child: ElevatedButton(
+                  onPressed: () { Get.to(() => NewPasswordScreen());},
                   child: Row(
                     children: [
                       Image.asset(
@@ -161,21 +153,21 @@ class LayoutProfile extends StatelessWidget {
                       ),
                     ],
                   ),
+                  style: ElevatedButton.styleFrom(
+                    side: BorderSide.none,
+                    backgroundColor: NotesColor.whiteColor,
+                    shape: StadiumBorder(),
+                  ),
                 ),
               ),
-              Divider(
-                color: NotesColor.naturalLight,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Get.to(() => OnBoardingScreen());
-                },
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 7.sp),
-                  decoration: BoxDecoration(
-                    color: NotesColor.whiteColor,
-                    border: Border.all(color: NotesColor.whiteColor),
-                  ),
+              Divider( color: NotesColor.naturalLight,),
+              SizedBox(
+                height: 56,
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Get.to(() => OnBoardingScreen());
+                  },
                   child: Row(
                     children: [
                       Image.asset(
@@ -197,6 +189,11 @@ class LayoutProfile extends StatelessWidget {
                         ),
                       ),
                     ],
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    side: BorderSide.none,
+                    backgroundColor: NotesColor.whiteColor,
+                    shape: StadiumBorder(),
                   ),
                 ),
               ),

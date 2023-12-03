@@ -239,28 +239,20 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     height: 52,
-                    child: OutlinedButton(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image(
-                            image: AssetImage('assets/Images/Logo Image.png'),
-                            height: 22,
-                            width: 22,
-                          ),
-                          SizedBox(
-                            width: 2.w,
-                          ),
-                          Text(
-                            ' Login with Google',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontFamily: 'Poppins',
-                                fontSize: 16,
-                                color: NotesColor.blackColor),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
+                    child: OutlinedButton.icon(
+                      icon: Image(
+                        image: AssetImage('assets/Images/Logo Image.png'),
+                        height: 22,
+                        width: 22,
+                      ),
+                      label: Text(
+                        ' Login with Google',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            color: NotesColor.blackColor),
+                        textAlign: TextAlign.center,
                       ),
                       onPressed: () {
                         Get.to(
@@ -271,7 +263,7 @@ class LoginScreen extends StatelessWidget {
                         side: BorderSide(
                           color: NotesColor.greyColor,
                         ),
-                        backgroundColor: NotesColor.naturalLight,
+                        backgroundColor: NotesColor.whiteColor,
                         shape: StadiumBorder(),
                       ),
                     ),
@@ -285,7 +277,7 @@ class LoginScreen extends StatelessWidget {
                       Text(
                         'Don’t have any account?',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w500,
                             fontFamily: 'Poppins',
                             color: NotesColor.purpleColor,
                             fontSize: 16),

@@ -81,7 +81,9 @@ class AddNotesScreen extends StatelessWidget {
               CustomTextFormField(
                 MaximumLine: 10,
                 controller: controller.messageController,
-                hintText: '*************************',
+                hintText:'*************************'
+                    '*************************'
+                    '*************************',
                 hintStyle: TextStyle(
                     color: NotesColor.blackColor,
                     fontSize: 11.sp,

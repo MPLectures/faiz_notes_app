@@ -127,7 +127,6 @@ class LayoutHome extends StatelessWidget {
                             ),
                           ),
                           Divider(
-                            thickness: 1,
                             color: NotesColor.whiteColor,
                           ),
                         ],

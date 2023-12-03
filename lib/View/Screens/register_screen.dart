@@ -187,8 +187,7 @@ class RegisterScreen extends StatelessWidget {
                                 ),
                               )
                             : Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
                                   SizedBox(),
                                   Text(
@@ -247,35 +246,31 @@ class RegisterScreen extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   height: 52,
-                  child: OutlinedButton(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image(
-                          image: AssetImage('assets/Images/Logo Image.png'),
-                          height: 22,
-                          width: 22,
-                        ),
-                        SizedBox(width: 3.w),
-                        Text(
-                          ' Register with Google',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Poppins',
-                              fontSize: 13.sp,
-                              color: NotesColor.blackColor),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
+                  child: OutlinedButton.icon(
+                    icon: Image(
+                      image: AssetImage('assets/Images/Logo Image.png'),
+                      height: 22,
+                      width: 22,
+                    ),
+                    label:Text(
+                      ' Register with Google',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Poppins',
+                          fontSize: 13.sp,
+                          color: NotesColor.blackColor),
+                      textAlign: TextAlign.center,
                     ),
                     onPressed: () {
-                      Get.to(() => HomeScreen());
+                      Get.to(
+                            () => HomeScreen(),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       side: BorderSide(
                         color: NotesColor.greyColor,
                       ),
-                      backgroundColor: NotesColor.naturalLight,
+                      backgroundColor: NotesColor.whiteColor,
                       shape: StadiumBorder(),
                     ),
                   ),
@@ -292,7 +287,7 @@ class RegisterScreen extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                           fontFamily: 'Poppins',
                           color: NotesColor.purpleColor,
-                          fontSize: 13.sp),
+                          fontSize: 16),
                     ),
                     TextButton(
                       onPressed: () {
@@ -300,12 +295,12 @@ class RegisterScreen extends StatelessWidget {
                       },
                       child: Container(
                         child: Text(
-                          ' Login here',
+                          'Login here',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Poppins',
                               color: NotesColor.purpleColor,
-                              fontSize: 13.sp),
+                              fontSize: 16),
                         ),
                       ),
                     ),

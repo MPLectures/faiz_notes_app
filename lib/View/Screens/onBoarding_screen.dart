@@ -23,7 +23,7 @@ class OnBoardingScreen extends StatelessWidget {
               Column(
                 children: [
                   Image.asset('assets/Images/First_Image.png',
-                      width: 280.sp, height: 280.sp),
+                      width: 280.sp, height: 280.sp,),
                   SizedBox(
                     height: 10.sp,
                   ),
@@ -69,7 +69,7 @@ class OnBoardingScreen extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    side: BorderSide(color: Colors.transparent),
+                    side: BorderSide.none,
                     backgroundColor: NotesColor.naturalLight,
                     shape: StadiumBorder(),
                   ),

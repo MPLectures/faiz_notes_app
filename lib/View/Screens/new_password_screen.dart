@@ -48,9 +48,7 @@ class NewPasswordScreen extends StatelessWidget {
                     fontFamily: 'Poppins',
                     color: NotesColor.blackColor),
               ),
-              SizedBox(
-                height: 5.sp,
-              ),
+              SizedBox( height: 5.sp,),
               Text(
                 'Your new password should be different from the previous password',
                 style: TextStyle(
@@ -59,9 +57,7 @@ class NewPasswordScreen extends StatelessWidget {
                     fontFamily: 'Poppins',
                     color: NotesColor.natural_darkColor),
               ),
-              SizedBox(
-                height: 10,
-              ),
+              SizedBox( height: 10,),
               Text(
                 'New Password',
                 style: TextStyle(
@@ -70,6 +66,7 @@ class NewPasswordScreen extends StatelessWidget {
                     fontFamily: 'Poppins',
                     color: NotesColor.blackColor),
               ),
+              SizedBox( height: 6.sp,),
               CustomTextFormField(
                 hintText: '******',
                 hintStyle: TextStyle(
@@ -82,9 +79,7 @@ class NewPasswordScreen extends StatelessWidget {
                 borderSide: BorderSide(color: NotesColor.greyColor),
                 borderRadius: BorderRadius.circular(7),
               ),
-              SizedBox(
-                height: 5.sp,
-              ),
+              SizedBox( height: 5.sp,),
               Text(
                 'min. 8 character, combination of 0-9, A-Z, a-z',
                 style: TextStyle(
@@ -93,9 +88,7 @@ class NewPasswordScreen extends StatelessWidget {
                     fontFamily: 'Poppins',
                     color: NotesColor.natural_darkColor),
               ),
-              SizedBox(
-                height: 15.sp,
-              ),
+              SizedBox(height: 15.sp,),
               Text(
                 'Retype New Password',
                 style: TextStyle(
@@ -104,9 +97,7 @@ class NewPasswordScreen extends StatelessWidget {
                     fontFamily: 'Poppins',
                     color: NotesColor.blackColor),
               ),
-              SizedBox(
-                height: 6,
-              ),
+              SizedBox( height: 6.sp,),
               CustomTextFormField(
                 hintText: '******',
                 hintStyle: TextStyle(
@@ -119,29 +110,24 @@ class NewPasswordScreen extends StatelessWidget {
                 borderSide: BorderSide(color: NotesColor.greyColor),
                 borderRadius: BorderRadius.circular(7),
               ),
-              SizedBox(
-                height: 10.h,
-              ),
-              SizedBox(
-                height: 54,
-                width: double.infinity,
-                child: ElevatedButton(
-                    onPressed: () {
-                      Get.to(() => LoginScreen());
-                    },
-                    child: Text('Create Password',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: NotesColor.whiteColor)),
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: NotesColor.purpleColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ))),
-              ),
+              SizedBox( height: 10.h,),
+              ElevatedButton(
+                  onPressed: () {
+                    Get.to(() => LoginScreen());
+                  },
+                  child: Text('Create Password',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: NotesColor.whiteColor)),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: NotesColor.purpleColor,
+                      fixedSize: Size(double.infinity, 54),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ))),
             ],
           ),
         ),

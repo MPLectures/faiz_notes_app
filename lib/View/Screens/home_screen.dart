@@ -10,6 +10,7 @@ import 'package:faiz_notes_app/View/Screens/add_notes_home_screen.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     var homeController = Get.put(HomeController());
 
     return Scaffold(

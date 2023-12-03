@@ -20,7 +20,6 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       maxLines: MaximumLine,
       decoration: InputDecoration(
-
         // border: InputBorder.none,
         hintText: hintText,
         hintStyle: hintStyle!,
@@ -28,7 +27,7 @@ class CustomTextFormField extends StatelessWidget {
         fillColor: fillColor,
         border: border,
         suffixIcon: SuffixIcon,
-        contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         enabledBorder: OutlineInputBorder(
           borderSide: borderSide!,
           borderRadius: borderRadius,
