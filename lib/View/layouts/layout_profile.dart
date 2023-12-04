@@ -156,7 +156,7 @@ class LayoutProfile extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     side: BorderSide.none,
                     backgroundColor: NotesColor.whiteColor,
-                    shape: StadiumBorder(),
+                    shape: RoundedRectangleBorder(),
                   ),
                 ),
               ),
@@ -193,7 +193,7 @@ class LayoutProfile extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     side: BorderSide.none,
                     backgroundColor: NotesColor.whiteColor,
-                    shape: StadiumBorder(),
+                    shape: RoundedRectangleBorder(),
                   ),
                 ),
               ),
