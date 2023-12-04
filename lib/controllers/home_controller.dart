@@ -10,9 +10,13 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     checkIfUserHasVerifiedEmail();
+    super.onInit();
   }
 
-  void checkIfUserHasVerifiedEmail() {
+  void checkIfUserHasVerifiedEmail() async {
+
+    await Future.delayed(Duration(seconds: 2));
+
     if (FirebaseAuth.instance.currentUser?.emailVerified ?? false) {
       savedNotes.value = AddNoteController.getSavedNotes();
       GetStorage().listenKey('notes', (value) {

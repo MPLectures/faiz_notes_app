@@ -18,6 +18,10 @@ class AddNoteController extends GetxController {
 
     print(AddNoteController.getSavedNotes());
   }
+  
+  void saveNoteOnline() async {
+
+  }
 
   static List<Note> getSavedNotes() {
     var savedMapsList = (GetStorage().read<List<dynamic>>("notes") ?? []).map((e) => e as Map<String, dynamic>).toList();

@@ -163,55 +163,48 @@ class RegisterScreen extends StatelessWidget {
                 SizedBox(
                   height: 5.h,
                 ),
-                TextButton(
-                  onPressed: authController.loading.isTrue
-                      ? null
-                      : () {
-                          // Get.to(() => HomeScreen());
-
-                          authController.registerUser();
-                        },
-                  child: Obx(
-                    () => SizedBox(
-                      height: 55,
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        child: authController.loading.isTrue
-                            ? Center(
-                                child: SizedBox(
-                                  child: CircularProgressIndicator(
-                                    color: Colors.white,
-                                  ),
-                                  height: 20,
-                                  width: 20,
+                Obx(
+                  () => SizedBox(
+                    height: 55,
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      child: authController.loading.isTrue
+                          ? Center(
+                              child: SizedBox(
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
                                 ),
-                              )
-                            : Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  SizedBox(),
-                                  Text(
-                                    'Register',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 16.sp,
-                                        color: NotesColor.whiteColor),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward_outlined,
-                                    color: NotesColor.whiteColor,
-                                  ),
-                                ],
+                                height: 20,
+                                width: 20,
                               ),
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: NotesColor.purpleColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(100),
-                            )),
-                      ),
+                            )
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                SizedBox(),
+                                Text(
+                                  'Register',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: 'Poppins',
+                                      fontSize: 16.sp,
+                                      color: NotesColor.whiteColor),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Icon(
+                                  Icons.arrow_forward_outlined,
+                                  color: NotesColor.whiteColor,
+                                ),
+                              ],
+                            ),
+                      onPressed: () {
+                        authController.registerUser();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: NotesColor.purpleColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          )),
                     ),
                   ),
                 ),

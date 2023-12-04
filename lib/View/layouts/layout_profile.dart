@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:faiz_notes_app/View/Screens/register_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -6,9 +8,7 @@ import '../../Helpers/Constant.dart';
 import '../Screens/new_password_screen.dart';
 import '../Screens/onBoarding_screen.dart';
 
-
 class LayoutProfile extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,11 +18,7 @@ class LayoutProfile extends StatelessWidget {
         elevation: 0,
         title: Text(
           'Profile',
-          style: TextStyle(
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w600,
-              fontSize: 24.sp,
-              color: NotesColor.blackColor),
+          style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600, fontSize: 24.sp, color: NotesColor.blackColor),
           textAlign: TextAlign.center,
         ),
       ),
@@ -32,43 +28,56 @@ class LayoutProfile extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 15.sp),
           child: Column(
             children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Michael Antonio',
-                  style: TextStyle(
-                    fontFamily: 'poppins',
-                    fontSize: 17.sp,
-                    fontWeight: FontWeight.w700,
-                    color: NotesColor.blackColor,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 5.sp,
-              ),
-              Row(
-                children: [
-                  Image.asset(
-                    'assets/Images/mail.png',
-                    height: 15.sp,
-                    width: 15.sp,
-                    color: NotesColor.natural_darkColor,
-                  ),
-                  SizedBox(
-                    width: 2,
-                  ),
-                  Text(
-                    ' anto_michael@gmail.com',
-                    style: TextStyle(
-                      fontFamily: 'poppins',
-                      fontSize: 10.sp,
-                      fontWeight: FontWeight.w400,
-                      color: NotesColor.natural_darkColor,
-                    ),
-                  ),
-                ],
-              ),
+              FutureBuilder<DocumentSnapshot>(
+                  future: FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).get(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(child: CircularProgressIndicator());
+                    }
+
+                    var data = snapshot.data!.data() as Map<String, dynamic>;
+                    return Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            data['name'].toString(),
+                            style: TextStyle(
+                              fontFamily: 'poppins',
+                              fontSize: 17.sp,
+                              fontWeight: FontWeight.w700,
+                              color: NotesColor.blackColor,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5.sp,
+                        ),
+                        Row(
+                          children: [
+                            Image.asset(
+                              'assets/Images/mail.png',
+                              height: 15.sp,
+                              width: 15.sp,
+                              color: NotesColor.natural_darkColor,
+                            ),
+                            SizedBox(
+                              width: 2,
+                            ),
+                            Text(
+                              data['email'].toString(),
+                              style: TextStyle(
+                                fontFamily: 'poppins',
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.w400,
+                                color: NotesColor.natural_darkColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    );
+                  }),
               SizedBox(
                 height: 3.h,
               ),
@@ -125,7 +134,9 @@ class LayoutProfile extends StatelessWidget {
                 width: double.infinity,
                 height: 56,
                 child: ElevatedButton(
-                  onPressed: () { Get.to(() => NewPasswordScreen());},
+                  onPressed: () {
+                    Get.to(() => NewPasswordScreen());
+                  },
                   child: Row(
                     children: [
                       Image.asset(
@@ -160,7 +171,9 @@ class LayoutProfile extends StatelessWidget {
                   ),
                 ),
               ),
-              Divider( color: NotesColor.naturalLight,),
+              Divider(
+                color: NotesColor.naturalLight,
+              ),
               SizedBox(
                 height: 56,
                 width: double.infinity,

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:faiz_notes_app/models/user.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,14 +14,20 @@ class AuthController extends GetxController {
   var loading = false.obs;
 
   void registerUser() async {
+    print('ok');
+
     if (passwordController.text != confirmPasswordController.text) {
       Get.snackbar("Error", "Passwords don't match", backgroundColor: Colors.red, colorText: Colors.white);
       return;
     }
+
+
     loading.value = true;
 
-    FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text, password: passwordController.text).then((value) async {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text, password: passwordController.text).then((value) async {
       await FirebaseAuth.instance.currentUser?.updateDisplayName(nameController.text);
+      var model = UserModel(id: value.user!.uid, name: nameController.text, email: emailController.text, password: passwordController.text);
+      await saveUserData(model);
       loading.value = false;
 
       Get.offAll(HomeScreen());
@@ -57,5 +65,9 @@ class AuthController extends GetxController {
   void sendForgotPassEmail() async {
     var email = emailController.text;
     FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+  }
+
+  Future<void> saveUserData(UserModel userModel) async {
+    await FirebaseFirestore.instance.collection('users').doc(userModel.id).set(userModel.toMap());
   }
 }
