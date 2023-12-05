@@ -79,8 +79,7 @@ class LayoutHome extends StatelessWidget {
                     ),
                     Image.asset(
                       'assets/Images/Second Image.png',
-                      width: 130.sp,
-                      height: 80.sp,
+                      height: 110.sp,
                     ),
                   ],
                 ).paddingAll(10.sp)
