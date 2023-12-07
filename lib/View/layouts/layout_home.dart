@@ -1,3 +1,4 @@
+import 'package:faiz_notes_app/View/Screens/add_notes_home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class LayoutHome extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              controller.clearAllNotes();
+
             },
             icon: Icon(
               Icons.delete,
@@ -89,46 +90,51 @@ class LayoutHome extends StatelessWidget {
                     itemCount: controller.savedNotes.length,
                     itemBuilder: (_, index) {
                       var item = controller.savedNotes[index];
-                      return Column(
-                        children: [
-                          Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8.sp),
-                              color: NotesColor.purpleColor,
-                            ),
-                            child: ListTile(
-                              leading: CircleAvatar(
-                                backgroundColor: NotesColor.dark_purple,
-                                radius: 18.sp,
-                                child: Image.asset(
-                                    'assets/Images/light-bulb.png',
-                                    color: Colors.white),
+                      return GestureDetector(
+                        onTap: (){
+                          Get.to(AddNotesScreen(note: item,));
+                        },
+                        child: Column(
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.sp),
+                                color: NotesColor.purpleColor,
                               ),
-                              title: Text(
-                                item.title,
-                                style: TextStyle(
-                                  color: NotesColor.whiteColor,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: 'Poppins',
+                              child: ListTile(
+                                leading: CircleAvatar(
+                                  backgroundColor: NotesColor.dark_purple,
+                                  radius: 18.sp,
+                                  child: Image.asset(
+                                      'assets/Images/light-bulb.png',
+                                      color: Colors.white),
+                                ),
+                                title: Text(
+                                  item.title,
+                                  style: TextStyle(
+                                    color: NotesColor.whiteColor,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: 'Poppins',
+                                  ),
+                                ),
+                                subtitle: Text(
+                                  item.message,
+                                  style: TextStyle(
+                                    color: NotesColor.primaryColor,
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Poppins',
+                                  ),
                                 ),
                               ),
-                              subtitle: Text(
-                                item.message,
-                                style: TextStyle(
-                                  color: NotesColor.primaryColor,
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w400,
-                                  fontFamily: 'Poppins',
-                                ),
-                              ),
                             ),
-                          ),
-                          Divider(
-                            color: NotesColor.whiteColor,
-                          ),
-                        ],
+                            Divider(
+                              color: NotesColor.whiteColor,
+                            ),
+                          ],
+                        ),
                       );
                     },
                   ),

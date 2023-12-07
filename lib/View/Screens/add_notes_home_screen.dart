@@ -1,14 +1,18 @@
 import 'package:faiz_notes_app/Helpers/Constant.dart';
+import 'package:faiz_notes_app/controllers/add_note_controller.dart';
+import 'package:faiz_notes_app/models/note.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
 import '../../Custom Widgets/Custom_TextFormField.dart';
-import 'package:faiz_notes_app/controllers/add_note_controller.dart';
 
 class AddNotesScreen extends StatelessWidget {
+  Note? note;
+
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(AddNoteController());
+    var controller = Get.put(AddNoteController(note: note));
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -18,14 +22,23 @@ class AddNotesScreen extends StatelessWidget {
         backgroundColor: NotesColor.whiteColor,
         elevation: 0,
         title: Text(
-          'Add Notes',
-          style: TextStyle(
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w600,
-              fontSize: 19.sp,
-              color: NotesColor.blackColor),
+          note == null ? 'Add Note' : "Update Note",
+          style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600, fontSize: 19.sp, color: NotesColor.blackColor),
           textAlign: TextAlign.center,
         ),
+        actions: [
+          if (note != null)
+            IconButton(
+              onPressed: () async {
+                await controller.deleteNote();
+                Get.back();
+              },
+              icon: Icon(
+                Icons.delete,
+                color: Colors.black,
+              ),
+            ),
+        ],
       ),
       body: SafeArea(
         child: Padding(
@@ -104,16 +117,12 @@ class AddNotesScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                     onPressed: () {
-                      controller.saveNote();
+                      controller.saveNoteOnline();
                       Get.back();
                     },
-                    child: Text('Save',
+                    child: Text(note == null ? "Save" : "Update",
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 13.sp,
-                            fontWeight: FontWeight.w500,
-                            color: NotesColor.whiteColor)),
+                        style: TextStyle(fontFamily: 'Poppins', fontSize: 13.sp, fontWeight: FontWeight.w500, color: NotesColor.whiteColor)),
                     style: ElevatedButton.styleFrom(
                         backgroundColor: NotesColor.purpleColor,
                         shape: RoundedRectangleBorder(
@@ -126,4 +135,8 @@ class AddNotesScreen extends StatelessWidget {
       ),
     );
   }
+
+  AddNotesScreen({
+    this.note,
+  });
 }

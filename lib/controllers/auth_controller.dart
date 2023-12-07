@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:faiz_notes_app/Helpers/firebase_helpers.dart';
 import 'package:faiz_notes_app/models/user.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -68,6 +69,6 @@ class AuthController extends GetxController {
   }
 
   Future<void> saveUserData(UserModel userModel) async {
-    await FirebaseFirestore.instance.collection('users').doc(userModel.id).set(userModel.toMap());
+    await DbConstants.usersRef.doc(userModel.id).set(userModel.toMap());
   }
 }
