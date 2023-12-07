@@ -194,7 +194,10 @@ class LoginScreen extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    authController.loginUser();
+                                    Get.to(()=>HomeScreen());
+                                  },
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: NotesColor.purpleColor,
                                       shape: RoundedRectangleBorder(
